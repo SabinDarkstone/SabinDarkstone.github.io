@@ -19,12 +19,15 @@ jobs:
         uses: konstfish/quartz-build-action@v6
         with:
           source: content
-          page_title: "My Quartz Site"
+          page_title: "Pup Sabin - Journal"
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v3
   deploy:
     needs: build
     runs-on: ubuntu-latest
+    environment:
+      name: github-pages           # ← required
+      url: ${{ steps.deployment.outputs.page_url }}  # ← optional, shows a "View deployment" link
     steps:
       - name: Deploy to GitHub Pages
         uses: actions/deploy-pages@v4
