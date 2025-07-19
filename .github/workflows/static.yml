@@ -41,7 +41,7 @@ jobs:
       - name: Copy DG output
         run: |
           rm -rf site/Journal/*
-          cp -r dg-out/* site/Journal/
+          cp -r src/site/notes/* site/Journal/
       - name: Deploy to GitHub Pages
         id: deployment
         uses: actions/deploy-pages@v4
