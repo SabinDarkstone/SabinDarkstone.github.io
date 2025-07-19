@@ -38,6 +38,10 @@ jobs:
         with:
           # Upload entire repository
           path: 'site/'
+      - name: Copy DG output
+        run: |
+          rm -rf site/Journal/*
+          cp -r dg-out/* site/Journal/
       - name: Deploy to GitHub Pages
         id: deployment
         uses: actions/deploy-pages@v4
