@@ -8,3 +8,11 @@ baseurl: ""
 
 plugins:
   - jekyll-seo-tag
+
+defaults:
+  - scope:
+      path: ""
+      type: "journal"
+    values:
+      image: ./site/imgs/Main_Image.jpg
+      description: "A view into the life of Pup Sabin, one journal entry at a time."
