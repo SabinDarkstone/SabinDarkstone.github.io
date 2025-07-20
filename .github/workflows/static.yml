@@ -15,24 +15,40 @@ jobs:
     steps:
       - uses: actions/checkout@v4
 
+      - name: Cache Ruby gems
+        uses: actions/cache@v3
+        with:
+          path: site/vendor/bundle
+          key: ${{ runner.os }}-gems-${{ hashFiles('site/Gemfile.lock') }}
+          restore-keys: |
+            ${{ runner.os }}-gems-
+
+      - name: Cache jekyll cache
+        uses: actions/cache@v3
+        with:
+          path: site/.jekyll/cache
+          key: ${{ runner.os }}-jekyll-${{ hashFiles('site/Gemfile.lock') }}-${{ hashFiles('site/_config.yml') }}
+          restore-keys: |
+            ${{ runner.os }}-jekyll-
+
       - name: Set up Ruby & Bundler
         uses: ruby/setup-ruby@v1
         with:
           ruby-version: '3.2'
-          bundler-cache: true
+          bundler-cache: false
 
       - name: Install gems
         working-directory: site
-        run: bundle install
+        run: bundle install --jobs 4 --retru 3
 
-      - name: Build Jekyll site + copy static HTML
+      - name: Build Jekyll site (incremental) + copy static HTML
         # keep working-dir so Jekyll reads site/_config.yml, _includes/, _layouts/, plus ANY html files in site/
         working-directory: site
         run: |
           # wipe any old build
           rm -rf ../deploy
           # build everything in `site/` into ../deploy
-          bundle exec jekyll build --destination ../deploy
+          bundle exec jekyll build --incremental --destination ../deploy
 
       - name: Upload Pages artifact
         uses: actions/upload-pages-artifact@v3
