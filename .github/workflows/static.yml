@@ -20,9 +20,10 @@ jobs:
           ruby-version: '3.2'
           bundler-cache: true                                                          # caches your bundle :contentReference[oaicite:9]{index=9}
       - name: Install Gems
+        working-directory: ./site/
         run: bundle install                                                            # installs via your Gemfile :contentReference[oaicite:10]{index=10}
       - name: Build Jekyll site
-        run: bundle exec jekyll build --destination sites/Journal
+        run: bundle exec jekyll build --destination ./sites/Journal
         working-directory: ./site/                                    # if Gemfile isn’t at repo root :contentReference[oaicite:11]{index=11}
       - name: Upload Pages artifact
         uses: actions/upload-pages-artifact@v3                                         # for GitHub Pages :contentReference[oaicite:12]{index=12}
