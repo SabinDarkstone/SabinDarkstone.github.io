@@ -1,4 +1,4 @@
 collections:
   journal:
     output: true
-    permalink: /Journal/:path/s
+    permalink: /Journal/:path.html
