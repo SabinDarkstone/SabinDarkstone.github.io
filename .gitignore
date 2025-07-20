@@ -1,2 +1,5 @@
 deploy
 *.lock
+.obsidian
+
+!site/_journal/.obsidian
