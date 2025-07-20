@@ -2,3 +2,9 @@ collections:
   journal:
     output: true
     permalink: /Journal/:path.html
+
+url: "https://pupsabin.dog"
+baseurl: ""
+
+plugins:
+  - jekyll-seo-tag
