@@ -23,6 +23,7 @@ jobs:
         working-directory: ./site/
         run: bundle install                                                            # installs via your Gemfile :contentReference[oaicite:10]{index=10}
       - name: Build Jekyll site
+        working-directory: ./site/
         run: bundle exec jekyll build \
           --source notes \
           --destination site/Journal
