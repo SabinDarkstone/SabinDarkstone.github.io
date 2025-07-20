@@ -8,23 +8,30 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
+      - name: Configure GitHub Pages
+        uses: actions/configure-pages@v5
 
-      - name: Setup Ruby
-        uses: actions/setup-ruby@v1
-        with:
-          ruby-version: 3.x
-
-      - name: Install Jekyll & Gems
+      - name: Setup Ruby and Dependencies
         run: |
-          gem install bundler jekyll github-pages
+          gem install bundler jekyll
+          bundle install
 
-      - name: Build site
-        run: jekyll build --source . --destination sites/Journal
+      - name: Build site with Jekyll
+        run: bundle exec jekyll build --destination sites/Journal
 
-      - uses: actions/upload-pages-artifact@v1
+      - name: Upload GitHub Pages artifact
+        uses: actions/upload-pages-artifact@v3
         with:
-          path: sites/Journals
+          path: sites/Journal
 
-      - uses: actions/deploy-pages@v1
-        with:
-          artifact_path: sites/Journal
+  deploy:
+    needs: build
+    runs-on: ubuntu-latest
+    permissions:
+      pages: write
+      id-token: write
+      contents: read
+    steps:
+      - name: Deploy to GitHub Pages
+        id: deployment
+        uses: actions/deploy-pages@v4
