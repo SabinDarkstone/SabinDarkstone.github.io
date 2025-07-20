@@ -10,19 +10,43 @@ layout: default
             <div class="p-3">
                 <h5>Journal</h5>
                 <ul class="nav flex-column">
-                    {% assign by_year = entries | group_by_exp: "item", "item.date | date: '%Y'" %}
-                    {% for year in by_year %}
-                        <li class="nav-header">{{ year.name }}</li>
-                    {% for e in year.items %}…{% endfor %}
-                    {% endfor %}
 
+                    {% assign welcome = site.journal | where: "basename", "welcome" | first %}
+                    {% if welcome %}
                     <li class="nav-item">
+                        <a class="nav-link {% if page.url == welcome.url %}active fw-bold{% endif %}"
+                            href="{{ welcome.url }}">
+                            {{ welcome.data.title | default: welcome.basename }}
+                        </a>
+                    </li>
+                    <li>
+                        <hr>
+                    </li>
+                    {% endif %}
+
+                    {% assign others = site.journal
+                    | where_exp: "i", "i.basename != 'welcome'"
+                    | sort: "date" | reverse %}
+
+                    {% assign by_year = others | group_by_exp: "item", "item.date | date: '%Y'" %}
+                    {% for year in by_year %}
+                    <li class="nav-header">{{ year.name }}</li>
+
+                    {% assign by_month = year.items | group_by_exp: "e", "e.date | date: '%B'" %}
+                    {% for month in by_month %}
+                    <li class="nav-header ms-2">{{ month.name }}</li>
+
+                    {% for entry in month.items %}
+                    <li class="nav-item ms-3">
                         <a class="nav-link {% if page.url == entry.url %}active fw-bold{% endif %}"
                             href="{{ entry.url }}">
                             {{ entry.data.title | default: entry.basename }}
                         </a>
                     </li>
                     {% endfor %}
+                    {% endfor %}
+                    {% endfor %}
+
                 </ul>
             </div>
         </nav>
