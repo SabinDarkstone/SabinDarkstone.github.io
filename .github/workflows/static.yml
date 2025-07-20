@@ -13,22 +13,19 @@ jobs:
       id-token: write
 
     steps:
-      - uses: actions/checkout@v4
-
-      - name: Set up Ruby
+      - uses: actions/checkout@v4                                                      # checkout code :contentReference[oaicite:8]{index=8}
+      - name: Setup Ruby & Bundler
         uses: ruby/setup-ruby@v1
         with:
           ruby-version: '3.2'
-          bundler-cache: true
-
-      - name: Build site
+          bundler-cache: true                                                          # caches your bundle :contentReference[oaicite:9]{index=9}
+      - name: Install Gems
+        run: bundle install                                                            # installs via your Gemfile :contentReference[oaicite:10]{index=10}
+      - name: Build Jekyll site
         run: bundle exec jekyll build --destination sites/Journal
-
+        working-directory: ./site/                                    # if Gemfile isn’t at repo root :contentReference[oaicite:11]{index=11}
       - name: Upload Pages artifact
-        uses: actions/upload-pages-artifact@v3
-        with:
-          path: sites/Journal
-
+        uses: actions/upload-pages-artifact@v3                                         # for GitHub Pages :contentReference[oaicite:12]{index=12}
   deploy:
     needs: build
     runs-on: ubuntu-latest
