@@ -28,4 +28,3 @@ jobs:
       - uses: actions/deploy-pages@v1
         with:
           artifact_path: sites/Journal
-s
