@@ -1,0 +1,35 @@
+{% comment %} site/_layouts/journal.html {% endcomment %}
+---
+layout: default
+---
+
+<div class="container-fluid">
+    <div class="row">
+        <!-- Sidebar -->
+        <nav class="col-md-3 d-none d-md-block bg-light sidebar vh-100 position-sticky top-0">
+            <div class="p-3">
+                <h5>Journal</h5>
+                <ul class="nav flex-column">
+                    {% assign by_year = entries | group_by_exp: "item", "item.date | date: '%Y'" %}
+                    {% for year in by_year %}
+                        <li class="nav-header">{{ year.name }}</li>
+                    {% for e in year.items %}…{% endfor %}
+                    {% endfor %}
+
+                    <li class="nav-item">
+                        <a class="nav-link {% if page.url == entry.url %}active fw-bold{% endif %}"
+                            href="{{ entry.url }}">
+                            {{ entry.data.title | default: entry.basename }}
+                        </a>
+                    </li>
+                    {% endfor %}
+                </ul>
+            </div>
+        </nav>
+
+        <!-- Main content -->
+        <main class="col-md-9 ms-sm-auto px-4 py-4">
+            {{ content }}
+        </main>
+    </div>
+</div>
