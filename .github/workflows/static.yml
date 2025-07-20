@@ -1,4 +1,5 @@
-name: Deploy Jekyll Journal
+name: Build & Deploy Journal
+
 on:
   push:
     branches: [ main ]
@@ -6,20 +7,24 @@ on:
 jobs:
   build:
     runs-on: ubuntu-latest
+    permissions:
+      contents: read
+      pages: write
+      id-token: write
+
     steps:
       - uses: actions/checkout@v4
-      - name: Configure GitHub Pages
-        uses: actions/configure-pages@v5
 
-      - name: Setup Ruby and Dependencies
-        run: |
-          gem install bundler jekyll
-          bundle install
+      - name: Set up Ruby
+        uses: ruby/setup-ruby@v1
+        with:
+          ruby-version: '3.2'
+          bundler-cache: true
 
-      - name: Build site with Jekyll
+      - name: Build site
         run: bundle exec jekyll build --destination sites/Journal
 
-      - name: Upload GitHub Pages artifact
+      - name: Upload Pages artifact
         uses: actions/upload-pages-artifact@v3
         with:
           path: sites/Journal
@@ -27,11 +32,6 @@ jobs:
   deploy:
     needs: build
     runs-on: ubuntu-latest
-    permissions:
-      pages: write
-      id-token: write
-      contents: read
     steps:
       - name: Deploy to GitHub Pages
-        id: deployment
         uses: actions/deploy-pages@v4
