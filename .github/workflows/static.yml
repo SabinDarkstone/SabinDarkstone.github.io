@@ -1,5 +1,4 @@
 name: Build & Deploy Journal
-
 on:
   push:
     branches: [ main ]
@@ -14,24 +13,35 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-      - uses: actions/checkout@v4                                                      # checkout code :contentReference[oaicite:8]{index=8}
-      - name: Setup Ruby & Bundler
+      - uses: actions/checkout@v4
+
+      - name: Set up Ruby & Bundler
         uses: ruby/setup-ruby@v1
         with:
           ruby-version: '3.2'
-          bundler-cache: true                                                          # caches your bundle :contentReference[oaicite:9]{index=9}
-      - name: Install Gems
-        working-directory: ./site/
-        run: bundle install                                                            # installs via your Gemfile :contentReference[oaicite:10]{index=10}
-      - name: Build Jekyll site
-        working-directory: ./site/
-        run: bundle exec jekyll build \
-          --source notes \
-          --destination site/Journal
+          bundler-cache: true
+
+      - name: Install gems
+        working-directory: site
+        run: bundle install
+
+      - name: Build Jekyll site + copy static HTML
+        # keep working-dir so Jekyll reads site/_config.yml, _includes/, _layouts/, plus ANY html files in site/
+        working-directory: site
+        run: |
+          # wipe any old build
+          rm -rf ../deploy
+          # build everything in `site/` into ../deploy
+          bundle exec jekyll build --destination ../deploy
+
       - name: Upload Pages artifact
         uses: actions/upload-pages-artifact@v3
         with:
-          path: site/Journal
+          # this folder now contains:
+          # • all your original static html/assets from site/
+          # • PLUS the pages Jekyll generated (journal collection, layouts, etc.)
+          path: deploy
+
   deploy:
     needs: build
     runs-on: ubuntu-latest
