@@ -23,10 +23,13 @@ jobs:
         working-directory: ./site/
         run: bundle install                                                            # installs via your Gemfile :contentReference[oaicite:10]{index=10}
       - name: Build Jekyll site
-        run: bundle exec jekyll build --destination ./sites/Journal
-        working-directory: ./site/                                    # if Gemfile isn’t at repo root :contentReference[oaicite:11]{index=11}
+        run: bundle exec jekyll build \
+          --source notes \
+          --destination site/Journal
       - name: Upload Pages artifact
-        uses: actions/upload-pages-artifact@v3                                         # for GitHub Pages :contentReference[oaicite:12]{index=12}
+        uses: actions/upload-pages-artifact@v3
+        with:
+          path: site/Journal
   deploy:
     needs: build
     runs-on: ubuntu-latest
