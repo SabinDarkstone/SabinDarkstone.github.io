@@ -39,7 +39,7 @@ jobs:
 
       - name: Install gems
         working-directory: site
-        run: bundle install --jobs 4 --retru 3
+        run: bundle install --jobs 4 --retry 3
 
       - name: Build Jekyll site (incremental) + copy static HTML
         # keep working-dir so Jekyll reads site/_config.yml, _includes/, _layouts/, plus ANY html files in site/
