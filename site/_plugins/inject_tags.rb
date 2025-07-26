@@ -10,7 +10,7 @@ Jekyll::Hooks.register :documents, :post_render do |doc|
 
   # build the pills HTML
   tags_html = doc.data["tags"].map do |t|
-    %(<span class="badge rounded-pill bg-secondary me-1">#{t}</span>)
+    %(<span class="badge rounded-pill bg-secondary me-1 mb-1">#{t}</span>)
   end.join
   wrapper = Nokogiri::HTML::DocumentFragment.parse(%(<div class="mb-4">#{tags_html}</div>))
 
