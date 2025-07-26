@@ -4,3 +4,6 @@ deploy
 *.json
 
 !site/_journal/.obsidian
+/site/_journal/.obsidian/community-plugins.json
+/site/_journal/.obsidian/core-plugins.json
+/site/_journal/.obsidian/workspace.json
