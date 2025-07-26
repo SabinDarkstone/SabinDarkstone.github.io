@@ -14,5 +14,5 @@ defaults:
       path: ""
       type: "journal"
     values:
-      image: imgs/Journal_Image.png
+      image: assets/imgs/Journal_Image.png
       description: "A view into the life of gearhead werehusky sergal thing, Pup Sabin, one journal entry at a time."
