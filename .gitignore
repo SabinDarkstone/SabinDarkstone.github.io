@@ -4,3 +4,4 @@ deploy
 *.json
 
 /site/_journal/.obsidian
+/site/_site
