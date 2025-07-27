@@ -8,6 +8,10 @@ permissions:
   pages: write
   id-token: write
 
+env:
+  SPOTIFY_CLIENT_ID: ${{ secrets.SPOTIFY_CLIENT_ID }}
+  SPOTIFY_CLIENT_SECRET: ${{ secrets.SPOTIFY_CLIENT_SECRET }}
+  
 jobs:
   build:
     runs-on: ubuntu-latest

@@ -1,6 +1,7 @@
 deploy
 *.lock
 .obsidian
+.env
 *.json
 
 /site/_journal/.obsidian
