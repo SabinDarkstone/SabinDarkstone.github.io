@@ -1,7 +1,7 @@
 ---
 layout: journal
 title: Welcome
-modified: 2025-07-27 15:03:58
+modified: 2025-07-27 15:34:17
 created: 2025-07-27 14:18:34
 ---
 # Welcome
@@ -13,13 +13,13 @@ Welcome to my journal!
 - Issues with my sexuality and identity growing up
 - Depression in college and treatment
 - "Fragment" song by Stupendium
-
+- The final sleepover
 ## Change Log
 
 #### 2025-07-27
 - Adding estimated read time
 - Tweaking journal layout to read more information from frontmatter
-- Adding wikilinks support to link between journal entries
+- Adding wiki-links support to link between journal entries
 - Adding future topics list
 
 #### 2025-07-26
