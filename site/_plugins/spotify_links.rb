@@ -1,6 +1,6 @@
 # site/_plugins/spotify_links.rb
-require "dotenv"
-Dotenv.load(File.expand_path("../.env", __dir__))
+# require "dotenv"
+# Dotenv.load(File.expand_path("../.env", __dir__))
 
 require "rspotify"
 
