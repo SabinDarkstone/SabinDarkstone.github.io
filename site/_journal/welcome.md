@@ -4,8 +4,6 @@ title: Welcome
 modified: 2025-07-27 15:34:17
 created: 2025-07-27 14:18:34
 ---
-# Welcome
-
 Welcome to my journal!
 
 ## Future Topic Ideas
