@@ -1,7 +1,7 @@
 ---
 layout: journal
 title: Welcome
-modified: 2025-07-27 15:02:53
+modified: 2025-07-27 15:03:58
 created: 2025-07-27 14:18:34
 ---
 # Welcome
@@ -12,7 +12,7 @@ Welcome to my journal!
 - My parents snooping as I grew up
 - Issues with my sexuality and identity growing up
 - Depression in college and treatment
-- 
+- "Fragment" song by Stupendium
 
 ## Change Log
 
