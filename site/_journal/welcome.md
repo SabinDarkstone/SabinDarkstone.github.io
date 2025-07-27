@@ -14,6 +14,7 @@ Welcome to my journal!
 - Depression in college and treatment
 - "Fragment" song by Stupendium
 - The final sleepover
+
 ## Change Log
 
 #### 2025-07-27
