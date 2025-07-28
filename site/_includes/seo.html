@@ -1,0 +1,16 @@
+{% seo %}
+
+{% capture my_desc %}
+    {{ page.reading_time }} min read.
+    {% if page.tags %}Tags: {{ page.tags || join: ", " }}. {% endif %}
+    {{ page.description 
+        | default: page.excerpt
+        | strip_html
+        | strip_newlines
+        | truncate: 160, "..." }}
+{% endcapture %}
+
+<meta name="description" content="{{ my_desc | strip }}">
+<meta property="og:description" content="{{ my_desc | strip }}">
+
+<meta property="og:title" content="{{ page.title }}">
