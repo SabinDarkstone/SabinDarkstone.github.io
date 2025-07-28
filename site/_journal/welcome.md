@@ -1,8 +1,12 @@
 ---
 layout: journal
 title: Welcome
-modified: 2025-07-27 15:40:20
+modified: 2025-07-28 11:17:05
 created: 2025-07-27 14:18:34
+tags:
+  - ideas
+  - technology
+description: Welcome to my online journal where I write about what's going on in my life.
 ---
 Welcome to my journal!
 
@@ -14,6 +18,11 @@ Welcome to my journal!
 - The final sleepover
 
 ## Change Log
+
+#### 2025-07-28
+- Updating how previews are built
+- Adding descriptions to entries
+- Refactoring layout of journal behind the scenes
 
 #### 2025-07-27
 - Adding estimated read time
