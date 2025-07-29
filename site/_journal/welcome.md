@@ -16,6 +16,8 @@ Welcome to my journal!
 - Depression in college and treatment
 - "Fragment" song by Stupendium
 - The final sleepover
+- Collaring and what it means to me
+- Puppy play in everyday life
 
 ## Change Log
 
