@@ -19,6 +19,7 @@ Welcome to my journal!
 - Collaring and what it means to me
 - Puppy play in everyday life
 - Opening up to my parents about my therian and pup identity
+- Pup hood being comfy and comforting
 
 ## Change Log
 
