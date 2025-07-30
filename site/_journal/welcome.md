@@ -18,6 +18,7 @@ Welcome to my journal!
 - The final sleepover
 - Collaring and what it means to me
 - Puppy play in everyday life
+- Opening up to my parents about my therian and pup identity
 
 ## Change Log
 
