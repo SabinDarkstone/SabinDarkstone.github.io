@@ -1,11 +1,12 @@
 ---
 layout: journal
 title: Welcome
-modified: 2025-07-28 11:17:05
+modified: 2025-07-31T08:34:08-04:00
 created: 2025-07-27 14:18:34
 tags:
   - ideas
   - technology
+  - meta
 description: Welcome to my online journal where I write about what's going on in my life.
 ---
 Welcome to my journal!
@@ -20,6 +21,7 @@ Welcome to my journal!
 - Puppy play in everyday life
 - Opening up to my parents about my therian and pup identity
 - Pup hood being comfy and comforting
+- What would normies think of my relationship with my partner
 
 ## Change Log
 
