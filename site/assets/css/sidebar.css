@@ -31,10 +31,10 @@
     margin-left: 1.5rem !important;
 }
 
-.nav-item a.nav-link {
+.nav-item2 a.nav-link {
     padding: .2rem .5rem;
 }
-.nav-item a.nav-link.active {
+.nav-item2 a.nav-link.active {
     background-color: #e9ecef;
     font-weight: 600;
 }

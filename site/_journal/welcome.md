@@ -1,7 +1,7 @@
 ---
 layout: journal
 title: Welcome
-modified: 2025-07-31T08:34:08-04:00
+modified: 2025-08-03 15:23:00
 created: 2025-07-27 14:18:34
 tags:
   - ideas
@@ -24,6 +24,10 @@ Welcome to my journal!
 - What would normies think of my relationship with my partner
 
 ## Change Log
+
+#### 2025-08-03
+- Changing sidebar breakpoints
+- Updating sidebar to be interactive tree
 
 #### 2025-07-28
 - Updating how previews are built
