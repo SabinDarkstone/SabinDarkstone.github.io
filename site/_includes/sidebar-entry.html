@@ -1,0 +1,5 @@
+<li class="nav-item ms-3">
+    <a class="nav-link {% if page.url == entry.url %}active fw-bold{% endif %}" href="{{ entry.url }}">
+        {{ entry.title | default: entry.basename }}
+    </a>
+</li>

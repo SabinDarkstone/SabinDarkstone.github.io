@@ -1,0 +1,55 @@
+{% comment %}
+    If on welcome, use recent entry's month/year; else page.date
+{% endcomment %}
+
+{% assign welcome = site.journal | where: "title", "Welcome" | first %}
+
+{% assign is_welcome = false %}
+{% if page.url == welcome.url %}
+    {% assign is_welcome = true %}
+{% endif %}
+
+{% assign recent = site.journal
+    | where_exp: "i", "i.title != 'Welcome'"
+    | sort: "date" | reverse | first %}
+
+{% assign month_year = month.items.first.date | date: '%Y' %}
+
+{% assign month_current = false %}
+{% for entry in month.items %}
+    {% if entry.url == page.url %}
+        {% assign month_current = true %}
+    {% endif %}
+{% endfor %}
+
+{% assign recent_month = recent.date | date: "%B" %}
+
+{% assign matching_month = false %}
+{% if month.name == recent_month %}
+    {% assign matching_month = true %}
+{% endif %}
+
+{% assign show_for_welcome = is_welcome and matching_month %}
+{% if month_current or (is_welcome and matching_month) %}
+    {% assign is_open = true %}
+{% else %}
+    {% assign is_open = false %}
+{% endif %}
+
+{% assign collapse_id = "month-" | append: (month.name | slugify) | append: "-" | append: month_year %}
+
+{% assign month_count = month.items | size %}
+
+<li class="nav-header ms-2">
+    {% include sidebar-toggle.html
+        collapse_id=collapse_id
+        is_open=is_open
+        label=month.name
+        count=month_count %}
+</li>
+
+<ul class="collapse {% if is_open %}show{% endif %}" id="{{ collapse_id }}">
+    {% for entry in month.items %}
+        {% include sidebar-entry.html entry=entry page=page %}
+    {% endfor %}
+</ul>
