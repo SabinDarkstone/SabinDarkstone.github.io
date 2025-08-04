@@ -1,0 +1,50 @@
+.sidebar-toggle {
+    display: flex;
+    align-items: center;
+    padding: 0.25rem .5rem;
+    color: #343a40;
+    font-weight: 500;
+    text-decoration: none;
+}
+
+.sidebar-toggle:hover {
+    background-color: #f8f9fa;
+}
+
+.sidebar-chevron {
+    margin-right: .5rem;
+    transition: transform .2s ease;
+    flex-shrink: 0;
+}
+
+#journal-tree,
+#journal-tree ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+#journal-tree .ms-2 {
+    margin-left: 1rem !important;
+}
+#journal-tree .ms-3 {
+    margin-left: 1.5rem !important;
+}
+
+.nav-item2 a.nav-link {
+    padding: .2rem .5rem;
+}
+.nav-item2 a.nav-link.active {
+    background-color: #e9ecef;
+    font-weight: 600;
+}
+
+.sidebar-toggle .sidebar-chevron {
+    display: inline-block;
+    transition: transform 0.2s ease;
+    transform: rotate(0deg);
+}
+
+.sidebar-toggle:not(.collapsed) .sidebar-chevron {
+    transform: rotate(90deg);
+}

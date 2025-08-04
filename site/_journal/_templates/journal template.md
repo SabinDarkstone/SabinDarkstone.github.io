@@ -1,11 +1,9 @@
 ---
 layout: journal
-date: 2025-07-28
+date: ""
 tags: 
 title: 
-description: 
-modified: 2025-07-28 10:33:26
-created: 2025-07-28 10:29:57
+description:
 ---
 > [!INFO] Journaling Music
 >

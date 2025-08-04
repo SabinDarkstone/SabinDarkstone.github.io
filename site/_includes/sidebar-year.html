@@ -1,0 +1,37 @@
+{% comment %}
+    Determine if we're on Welcome; if so grab the most recent non-welcome entry
+{% endcomment %}
+
+{% assign welcome = site.journal | where: "title", "Welcome" | first %}
+{% assign is_welcome = page.url == welcome.url %}
+{% assign recent = site.journal
+    | where_exp: "i", "i.title != 'Welcome'"
+    | sort: "date" | reverse | first %}
+
+{% assign year_urls = year.items | map: "url" | join: "|" %}
+{% assign year_current = year_urls contains page.url %}
+
+{% assign recent_year = recent.date | date: "%Y" %}
+{% comment %}
+    TOOD: Fix this comparison not working in jekyll
+{% endcomment %}
+{% assign is_open = year_current or (is_welcome and year.name == recent_year) %}
+
+{% assign collapse_id = "year-" | append: year.name %}
+
+{% assign year_count = year.items | size %}
+
+<li class="nav-header">
+    {% include sidebar-toggle.html
+        collapse_id=collapse_id
+        is_open=is_open
+        label=year.name
+        count=year_count %}
+</li>
+
+<ul class="collapse {% if is_open %}show{% endif %}" id="{{ collapse_id }}">
+    {% assign by_month = year.items | group_by_exp: "e", "e.date | date: '%B'" %}
+    {% for month in by_month %}
+        {% include sidebar-month.html month=month page=page %}
+    {% endfor %}
+</ul>

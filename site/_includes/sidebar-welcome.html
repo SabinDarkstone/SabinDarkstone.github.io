@@ -1,0 +1,9 @@
+{% assign welcome = site.journal | where: "title", "Welcome" | first %}
+{% if welcome %}
+    <li class="nav-item" style="list-style: none">
+        <a class="nav-link {% if page.url == welcome.url %}active fw-bold{% endif %}" href="{{ welcome.url }}">
+            {{ welcome.title | default: welcome.basename }}
+        </a> 
+    </li>
+    <hr>
+{% endif %}
