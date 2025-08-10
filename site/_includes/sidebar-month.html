@@ -5,7 +5,7 @@
 {% assign welcome = site.journal | where: "title", "Welcome" | first %}
 
 {% assign is_welcome = false %}
-{% if page.url == welcome.url %}
+{% if page.url == welcome.url or page.url contains '/tags/' %}
     {% assign is_welcome = true %}
 {% endif %}
 

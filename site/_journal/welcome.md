@@ -25,6 +25,11 @@ Welcome to my journal!
 
 ## Change Log
 
+#### 2025-08-10
+- Tags on entries are now clickable to view all other entries with that tag
+- Added tags sidebar item to view and navigate tages
+- Made tags more modular for future enhancements
+
 #### 2025-08-03
 - Changing sidebar breakpoints
 - Updating sidebar to be interactive tree

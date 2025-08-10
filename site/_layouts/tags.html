@@ -1,0 +1,28 @@
+---
+layout: default
+---
+<div class="container-fluid">
+    <div class="row">
+        {% include sidebar.html %}
+
+        <div class="col-sm-9 px-4 py-4">
+            <h1 class="mb-3">Tags</h1>
+
+            {% assign grouped_tags = page.tags | sort: "name" | group_by_exp: "tag", "tag.name | slice: 0, 1 | upcase"
+            %}
+
+            {% for group in grouped_tags %}
+                <h3 class="mt-4">{{ group.name }}</h3>
+                <div class="d-flex flex-wrap gap-2 mb-3">
+                    {% for t in group.items %}
+                        <!-- <a class="badge rounded-pill text-bg-secondary text-decoration-none" href="/tags/{{ t.slug }}/">
+                            #{{ t.name }}
+                            <span class="ms-1 badge text-bg-light">{{ t.count }}</span>
+                        </a> -->
+                        {% include tag-badge.html name=t.name slug=t.slug count=t.count %}
+                    {% endfor %}
+                </div>
+            {% endfor %}
+        </div>
+    </div>
+</div>

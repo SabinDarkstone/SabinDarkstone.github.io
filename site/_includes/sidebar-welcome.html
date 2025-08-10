@@ -5,5 +5,10 @@
             {{ welcome.title | default: welcome.basename }}
         </a> 
     </li>
+    <li class="nav-item" style="list-style: none">
+        <a class="nav-link {% if page.url contains '/tags/' %}active fw-bold{% endif %}" href="/tags/">
+            All Tags
+        </a>
+    </li>
     <hr>
 {% endif %}
