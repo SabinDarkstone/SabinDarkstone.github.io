@@ -7,14 +7,14 @@ Jekyll::Hooks.register [:documents, :pages], :post_render do |doc|
 
     frag = Nokogiri::HTML::DocumentFragment.parse(doc.output)
 
-    # transform each Obsidian callout (<blockquote>[!TYPE] Title …</blockquote>)
+    # transform each Obsidian callout (<blockquote>[!COLLAPSE] Title …</blockquote>)
     frag.css("blockquote").each do |bq|
     html = bq.inner_html
 
-    # match [!TYPE] Title on first line
-    if html =~ /^\s*<p>\[!(\w+)\]\s*(.*?)<\/p>/m
-        type, title = $1.downcase, $2.strip
-        body_html   = html.sub(%r{^\s*<p>\[!\w+\].*?</p>}m, "")
+    # match [!COLLAPSE] Title on first line
+    if html =~ /^\s*<p>\[!COLLAPSE\]\s*(.*?)<\/p>/m
+        title     = $1.strip
+        body_html = html.sub(%r{^\s*<p>\[!COLLAPSE\].*?</p>}m, "")
 
         # unique ID for collapse
         cid = "callout-#{SecureRandom.hex(4)}"
@@ -31,7 +31,7 @@ Jekyll::Hooks.register [:documents, :pages], :post_render do |doc|
             aria-controls="#{cid}">
             #{title}
             </button>
-            <div id="#{cid}" class="collapse callout callout-#{type}">
+            <div id="#{cid}" class="collapse callout callout-#collapse">
             <div class="callout-body">
                 #{body_html}
             </div>
