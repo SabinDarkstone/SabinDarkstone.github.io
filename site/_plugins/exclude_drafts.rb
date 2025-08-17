@@ -2,7 +2,7 @@
 # Hide any page/document with front matter: status: draft
 
 def draft?(thing)
-  thing.data && thing.data["status"].to_s.downcase.strip == "draft" && thing.data["status"] == "published"
+  thing.data && thing.data["status"].to_s.downcase.strip == "draft" && thing.data["status"] != "published"
 end
 
 # As soon as a Page/Document is instantiated, mark it unpublished.

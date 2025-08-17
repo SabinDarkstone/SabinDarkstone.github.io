@@ -1,4 +1,3 @@
-# site/_plugins/obsidian_callouts.rb
 require "nokogiri"
 require "securerandom"
 
@@ -20,97 +19,111 @@ ICON_MAP = {
     "important" => "bi-exclamation-circle"
 }
 
-Jekyll::Hooks.register [:documents, :pages], :post_render do |doc|
-    next unless doc.output_ext == ".html"
+module ObsidianCalloutAndCollapse
+    def self.post_render(doc)
+        # Ignore any non-html files
+        return unless doc.output_ext == ".html"
+        
+        frag = Nokogiri::HTML::DocumentFragment.parse(doc.output)
 
-    frag = Nokogiri::HTML::DocumentFragment.parse(doc.output)
+        frag.css("blockquote").each do |blockquote|
+            html = blockquote.inner_html.strip
 
-    frag.css("blockquote").each do |bq|
-    html = bq.inner_html
+            # Special collapse handle
+            if html =~ /^\s*<p>\[!COLLAPSE\]\s*(.*?)<\/p>/m
+                title = $1.strip
+                blockquote.replace(handle_collapse_with_title(html, title))
 
-    # match [!COLLAPSE] Title on first line
-    if html =~ /^\s*<p>\[!COLLAPSE\]\s*(.*?)<\/p>/m
-        title     = $1.strip
+            # General callout handling
+            elsif html =~ /^\s*<p>\[!(\w+)\]\s*(.*?)<\/p>/m
+                type = $1.strip
+                title = $2.strip
+
+                if type == "collapse"
+                    blockquote.replace(handle_collapse_without_title(html, title))
+                else
+                    blockquote.replace(handle_callout(html, type, title))
+                end
+            end
+        end
+
+        doc.output = frag.to_html
+    end
+
+    private
+
+    def self.handle_collapse_with_title(html, title)
         body_html = html.sub(%r{^\s*<p>\[!COLLAPSE\].*?</p>}m, "")
 
-        # unique ID for collapse
-        cid = "callout-#{SecureRandom.hex(4)}"
-
-        # build the new node
-        new_node = Nokogiri::HTML::DocumentFragment.parse <<~HTML
-        <div class="mb-2">
-            <button
-            class="btn btn-primary"
-            type="button"
-            data-bs-toggle="collapse"
-            data-bs-target="##{cid}"
-            aria-expanded="false"
-            aria-controls="#{cid}">
-            #{title}
-            </button>
-            <div id="#{cid}" class="collapse callout callout-#collapse">
-            <div class="callout-body">
-                #{body_html}
-            </div>
-            </div>
-        </div>
-        HTML
-
-        bq.replace(new_node)
+        callout_id = "callout-#{SecureRandom.hex(4)}"
         
-    # Matches: [!TYPE] Optional Title
-        elsif html =~ /^\s*<p>\[!(\w+)\]\s*(.*?)<\/p>/m
-        raw_type = $1
-        type = raw_type.downcase
-        title = ($2 || "").strip
+        new_node = Nokogiri::HTML::DocumentFragment.parse <<~HTML
+            <div class="mb-2">
+                <button
+                    class="btn btn-primary"
+                    type="button"
+                    data-bs-toggle="collapse"
+                    data-bs-target="##{callout_id}"
+                    aria-expanded="false"
+                    aria-controls="#{callout_id}">
+                    #{title}
+                </button>
+                <div id="#{callout_id}" class="collapse callout callout-info callout-#collapse mt-2">
+                    <div class="callout-content">
+                        #{body_html}
+                    </div>
+                </div>
+            </div>
+        HTML
+        new_node
+    end
+
+    def self.handle_collapse_without_title(html, title)
         body_html = html.sub(%r{^\s*<p>\[!\w+\].*?</p>}m, "")
+        callout_id = "callout-#{SecureRandom.hex(4)}"
+        title = (title.empty? ? "Details" : title)
 
-        if type == "collapse"
-            cid = "callout-#{SecureRandom.hex(4)}"
-            title = (title.empty? ? "Details" : title)
-
-            new_node = Nokogiri::HTML::DocumentFragment.parse <<~HTML
-                <div class="callout callout-collapse mb-3">
+        new_node = Nokogiri::HTML::DocumentFragment.parse <<~HTML
+            <div class="callout callout-info callout-collapse mb-3">
                 <button
                     class="callout-title btn-unstyled d-flex align-items-center w-100"
                     type="button"
                     data-bs-toggle="collapse"
-                    data-bs-target="##{cid}"
+                    data-bs-target="##{callout_id}"
                     aria-expanded="false"
-                    aria-controls="#{cid}">
+                    aria-controls="#{callout_id}">
                     <i class="bi bi-chevron-right callout-caret me-2"></i>
                     <span class="callout-title-text">#{title}</span>
                 </button>
-                <div id="#{cid}" class="collapse">
+                <div id="#{callout_id}" class="collapse">
                     <div class="callout-content">
-                    #{body_html}
+                        #{body_html}
                     </div>
                 </div>
-                </div>
-            HTML
+            </div>
+        HTML
+        new_node
+    end
 
-            bq.replace(new_node)
-        else
-            icon = ICON_MAP[type] || "bi-info-circle"
-            # If no explicit title given, use a nice default of the type
-            display_title = title.empty? ? type.capitalize : title
+    def self.handle_callout(html, raw_type, title)
+        type = raw_type.downcase
+        body_html = html.sub(%r{^\s*<p>\[!\w+\].*?</p>}m, "")
+        icon = ICON_MAP[type] || "bi-info-circle"
+        display_title = title.empty? ? type.capitalize : title
 
-            new_node = Nokogiri::HTML::DocumentFragment.parse <<~HTML
-                <div class="callout callout-#{type} mb-3">
+        new_node = Nokogiri::HTML::DocumentFragment.parse <<~HTML
+            <div class="callout callout-#{type} mb-3">
                 <div class="callout-title d-flex align-items-center">
                     <i class="bi #{icon} me-2"></i>
-                    <span class="callout-title-text">#{display_title}</span>
+                    <span class="callout-title-text">
+                        #{display_title}
+                    </span>
                 </div>
                 <div class="callout-content">
                     #{body_html}
                 </div>
-                </div>
-            HTML
-
-            bq.replace(new_node)
-        end
+            </div>
+        HTML
+        new_node
     end
-    end
-
-    doc.output = frag.to_html
 end

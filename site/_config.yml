@@ -5,6 +5,7 @@ collections:
 
 url: "https://pupsabin.dog"
 baseurl: ""
+attachments_dir: "assets/imgs/attachments"
 
 plugins:
   - jekyll-seo-tag

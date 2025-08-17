@@ -1,4 +1,5 @@
 require "jekyll"
+require_relative "helpers/flags"
 
 module PupTags
     class TagPage < Jekyll::PageWithoutAFile
@@ -29,7 +30,7 @@ module PupTags
             journal_entries = site.collections["journal"]
             return unless journal_entries
 
-            docs = journal_entries.docs.reject { |d| truthy?(d.data["private"]) }
+            docs = journal_entries.docs.reject { |d| FrontMatterFlags.truthy?(d.data["private"]) }
             
             # Collect tags from the journal collection only
             tag_map = Hash.new { |h, k| h[k] = [] }
@@ -51,12 +52,6 @@ module PupTags
                 "permalink" => "/tags/"
             }
             site.pages << index
-        end
-
-        private
-
-        def truthy?(val)
-            val == true || (val.is_a?(String) && val.strip.downcase == "true")
         end
     end
 end
