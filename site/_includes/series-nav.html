@@ -1,0 +1,29 @@
+{% if page.series %}
+    {% assign series_entries = site.journal | where: "series", page.series | sort: "series_order" %}
+
+    {% if series_entries.size > 1 %}
+        {% assign current_index = nil %}
+        {% for entry in series_entries %}
+            {% if entry.url == page.url %}
+                {% assign current_index = forloop.index0 %}
+            {% endif %}
+        {% endfor %}
+
+        {% assign prev_index = current_index | minus: 1 %}
+        {% assign next_index = current_index | plus: 1 %}
+
+        <nav class="d-flex gap-2 my-4">
+            {% if prev_index >= 0 %}
+                <a class="btn btn-primary" href="{{ series_entries[prev_index].url | relative_url }}">
+                    &larr; Previous
+                </a>
+            {% endif %}
+
+            {% if next_index < series_entries.size %}
+                <a class="btn btn-primary ms-auto" href="{{ series_entries[next_index].url | relative_url }}">
+                    Next &rarr;
+                </a>
+            {% endif %}
+        </nav>
+    {% endif %}
+{% endif %}

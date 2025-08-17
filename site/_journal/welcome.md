@@ -25,7 +25,13 @@ Welcome to my journal!
 
 ## Change Log
 
-#### 2025-08-17
+#### 2025-08-17b
+- Adding support for journal entry series
+- Adding navigation buttons to previous/next entries in a series
+- Adding breadcrumbs for navigation, which will be improved upon in the future
+- Technical design improvements and addressing technical debt in custom plugins
+
+#### 2025-08-17a
 - Adding the ability to save entries as drafts to not be published yet
 - Entries can now be marked as private and are not accessible in the sidebar or in the tag navigation page
 
