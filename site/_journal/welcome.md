@@ -25,6 +25,9 @@ Welcome to my journal!
 
 ## Change Log
 
+#### 2025-08-17c
+- Adding a progress tracker to the sidebar to show stats about journal entries this month
+
 #### 2025-08-17b
 - Adding support for journal entry series
 - Adding navigation buttons to previous/next entries in a series

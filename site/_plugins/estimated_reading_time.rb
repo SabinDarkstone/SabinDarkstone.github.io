@@ -1,3 +1,5 @@
+require_relative "helpers/formatting"
+
 module EstimatedReadingTime
     def self.pre_render(doc)
         # Ignore any non-html files and empty files
@@ -6,9 +8,7 @@ module EstimatedReadingTime
         average_words_per_minute = 200
         
         # Strip markdown code fences and liquid tags
-        text = doc.content
-            .gsub(/```.+?```/m, "")
-            .gsub(/\{%\s*.+?\s*%\}/m, "")
+        text = Formatting.strip_markdown(doc.content)
         
         # Count words in the text naively
         words = text.split(/\s+/).size

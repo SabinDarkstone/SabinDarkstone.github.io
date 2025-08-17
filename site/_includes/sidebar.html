@@ -4,6 +4,10 @@
         
         {% include sidebar-welcome.html page=page %}
 
+        {% include progress_tracker.html %}
+
+        <hr>
+
         <ul class="nav flex-column" id="journal-tree">
             {% assign others = site.journal
                 | where_exp: "i", "i.title != 'Welcome'"

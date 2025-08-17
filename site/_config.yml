@@ -7,6 +7,9 @@ url: "https://pupsabin.dog"
 baseurl: ""
 attachments_dir: "assets/imgs/attachments"
 
+progress_tracker:
+  monthly_goal: 20
+
 plugins:
   - jekyll-seo-tag
 

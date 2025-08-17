@@ -1,4 +1,3 @@
-# _plugins/exclude_drafts.rb
 # Hide any page/document with front matter: status: draft
 
 def draft?(thing)
