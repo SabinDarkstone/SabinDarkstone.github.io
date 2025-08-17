@@ -1,13 +1,14 @@
 ---
 layout: journal
 title: Welcome
-modified: 2025-08-03 15:23:00
+modified: 2025-08-17T18:34:11-04:00
 created: 2025-07-27 14:18:34
 tags:
   - ideas
   - technology
   - meta
 description: Welcome to my online journal where I write about what's going on in my life.
+date: 2025-07-27
 ---
 Welcome to my journal!
 
