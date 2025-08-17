@@ -1,6 +1,7 @@
 ---
 layout: default
 ---
+
 <div class="container-fluid">
     <div class="row">
         {% include sidebar.html %}
@@ -11,22 +12,31 @@ layout: default
 
             <div class="list-group">
                 {% for entry in page.entries %}
-                    <a class="list-group-item list-group-item-action" href="{{ entry.url }}">
-                        <div class="d-flex w-100 justify-content-between">
-                            <h5 class="mb-1">{{ entry.title | default: entry.basename }}</h5>
-                            <small class="text-muted">{{ entry.date | date: "%b %d, %Y" }}</small>
-                        </div>
-                        {% if entry.data.description %}
-                            <p class="mb-1 text-muted">{{ entry.data.description }}</p>
-                        {% endif %}
-                        {% if entry.data.tags and entry.data.tags.size > 0 %}
-                            <div class="d-flex flex-wrap gap-2 mt-2">
-                                {% for t in entry.data.tags %}
-                                    <span class="badge rounded-pill text-bg-light">#{{ t }}</span>
-                                {% endfor %}
-                            </div>
-                        {% endif %}
-                    </a>
+                <a
+                    class="list-group-item list-group-item-action"
+                    href="{{ entry.url }}"
+                >
+                    <div class="d-flex w-100 justify-content-between">
+                        <h5 class="mb-1">
+                            {{ entry.title | default: entry.basename }}
+                        </h5>
+                        <small class="text-muted"
+                            >{{ entry.date | date: "%b %d, %Y" }}</small
+                        >
+                    </div>
+                    {% if entry.data.description %}
+                    <p class="mb-1 text-muted">{{ entry.data.description }}</p>
+                    {% endif %} {% if entry.data.tags and entry.data.tags.size >
+                    0 %}
+                    <div class="d-flex flex-wrap gap-2 mt-2">
+                        {% for t in entry.data.tags %}
+                        <span class="badge rounded-pill text-bg-light"
+                            >#{{ t }}</span
+                        >
+                        {% endfor %}
+                    </div>
+                    {% endif %}
+                </a>
                 {% endfor %}
             </div>
         </div>
