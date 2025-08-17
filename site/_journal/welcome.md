@@ -25,6 +25,15 @@ Welcome to my journal!
 
 ## Change Log
 
+#### 2025-08-17
+- Adding the ability to save entries as drafts to not be published yet
+- Entries can now be marked as private and are not accessible in the sidebar or in the tag navigation page
+
+#### 2025-08-16
+- Adding support for images inserted into entries in a wikilink style
+- Adding support for obsidian's callouts
+- Updating the journaling music callout to be a special case since it uses bootstrap collapse
+
 #### 2025-08-10
 - Tags on entries are now clickable to view all other entries with that tag
 - Added tags sidebar item to view and navigate tages
