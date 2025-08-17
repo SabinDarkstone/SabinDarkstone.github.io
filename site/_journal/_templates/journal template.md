@@ -3,7 +3,11 @@ layout: journal
 date: ""
 tags: 
 title: 
-description:
+description: 
+status: draft
+series: 
+series_order: 
+private: false
 ---
 > [!INFO] Journaling Music
 >
