@@ -2,8 +2,6 @@
     If on welcome, use recent entry's month/year; else page.date
 {% endcomment %}
 
-{% assign journal_public = site.journal | where_exp: "i", "i.data.private != true" %}
-
 {% assign welcome = journal_public | where: "title", "Welcome" | first %}
 
 {% assign is_welcome = false %}
@@ -11,7 +9,7 @@
     {% assign is_welcome = true %}
 {% endif %}
 
-{% assign recent = journal_public
+{% assign recent = site.journal
     | where_exp: "i", "i.title != 'Welcome'"
     | sort: "date" | reverse | first %}
 
@@ -52,6 +50,14 @@
 
 <ul class="collapse {% if is_open %}show{% endif %}" id="{{ collapse_id }}">
     {% for entry in month.items %}
-        {% include sidebar-entry.html entry=entry page=page %}
+        {% if entry.private != true or entry.url == page.url %}
+            {% assign show_entry = true %}
+        {% else %}
+            {% assign show_entry = false %}
+        {% endif %}
+
+        {% if show_entry %}
+            {% include sidebar-entry.html entry=entry page=page %}
+        {% endif %}
     {% endfor %}
 </ul>

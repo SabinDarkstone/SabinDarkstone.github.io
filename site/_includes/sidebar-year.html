@@ -2,11 +2,9 @@
     Determine if we're on Welcome; if so grab the most recent non-welcome entry
 {% endcomment %}
 
-{% assign journal_public = site.journal | where_exp: "i", "i.data.private != true" %}
-
-{% assign welcome = journal_public | where: "title", "Welcome" | first %}
+{% assign welcome = site.journal | where: "title", "Welcome" | first %}
 {% assign is_welcome = page.url == welcome.url or page.url contains '/tags/' %}
-{% assign recent = journal_public
+{% assign recent = site.journal
     | where_exp: "i", "i.title != 'Welcome'"
     | sort: "date" | reverse | first %}
 
