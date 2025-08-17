@@ -7,11 +7,17 @@ url: "https://pupsabin.dog"
 baseurl: ""
 attachments_dir: "assets/imgs/attachments"
 
+feed:
+  path: feed.xml
+  collections:
+    - journal  
+
 progress_tracker:
   monthly_goal: 20
 
 plugins:
   - jekyll-seo-tag
+  - jekyll-feed
 
 defaults:
   - scope:
