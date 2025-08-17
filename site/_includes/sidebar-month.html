@@ -2,14 +2,16 @@
     If on welcome, use recent entry's month/year; else page.date
 {% endcomment %}
 
-{% assign welcome = site.journal | where: "title", "Welcome" | first %}
+{% assign journal_public = site.journal | where_exp: "i", "i.data.private != true" %}
+
+{% assign welcome = journal_public | where: "title", "Welcome" | first %}
 
 {% assign is_welcome = false %}
 {% if page.url == welcome.url or page.url contains '/tags/' %}
     {% assign is_welcome = true %}
 {% endif %}
 
-{% assign recent = site.journal
+{% assign recent = journal_public
     | where_exp: "i", "i.title != 'Welcome'"
     | sort: "date" | reverse | first %}
 

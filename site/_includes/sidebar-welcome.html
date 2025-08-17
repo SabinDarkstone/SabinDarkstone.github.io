@@ -1,4 +1,6 @@
-{% assign welcome = site.journal | where: "title", "Welcome" | first %}
+{% assign journal_public = site.journal | where_exp: "i", "i.data.private != true" %}
+
+{% assign welcome = journal_public | where: "title", "Welcome" | first %}
 {% if welcome %}
     <li class="nav-item" style="list-style: none">
         <a class="nav-link {% if page.url == welcome.url %}active fw-bold{% endif %}" href="{{ welcome.url }}">

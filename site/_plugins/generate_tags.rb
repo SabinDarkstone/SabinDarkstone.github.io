@@ -26,12 +26,14 @@ module PupTags
         priority :low
         
         def generate(site)
-            col1 = site.collections["journal"]
-            return unless col1
+            journal_entries = site.collections["journal"]
+            return unless journal_entries
+
+            docs = journal_entries.docs.reject { |d| truthy?(d.data["private"]) }
             
             # Collect tags from the journal collection only
             tag_map = Hash.new { |h, k| h[k] = [] }
-            col1.docs.each do |doc|
+            docs.each do |doc|
                 (doc.data["tags"] || []).each { |t| tag_map[t] << doc }  
             end
 
@@ -49,6 +51,12 @@ module PupTags
                 "permalink" => "/tags/"
             }
             site.pages << index
+        end
+
+        private
+
+        def truthy?(val)
+            val == true || (val.is_a?(String) && val.strip.downcase == "true")
         end
     end
 end

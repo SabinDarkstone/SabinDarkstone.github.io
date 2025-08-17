@@ -1,3 +1,5 @@
+{% assign journal_public = site.journal | where_exp: "i", "i.data.private != true" %}
+
 <div class="col-12 col-lg-3 bg-light">
     <div class="p-3">
         <h5>Journal</h5>
@@ -6,6 +8,7 @@
 
         <ul class="nav flex-column" id="journal-tree">
             {% assign others = site.journal
+                | where_exp: "i", "i.data.private != true"
                 | where_exp: "i", "i.title != 'Welcome'"
                 | sort: "date" | reverse %}
 

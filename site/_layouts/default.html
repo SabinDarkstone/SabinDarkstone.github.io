@@ -17,6 +17,10 @@
         <link rel="stylesheet" href="/assets/css/sidebar.css">
 
         {% seo %}
+
+        {% if page.robots %}
+            <meta name="robots" content="{{ page.robots }}">
+        {% endif %}
     </head>
 
     <body>
