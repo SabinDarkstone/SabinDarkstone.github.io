@@ -9,7 +9,7 @@
         </div>
 
         <div class="progress" style="height: 5px;">
-            <div class="progress-bar" role="progressbar" style="width: {{ prog.progress_pct }}%;"
+            <div class="progress-bar" role="progressbar" style="width: {{ prog.progress_pct | default: 0 }}%;"
                 aria-valuenow="{{ prog.entries_this_month }}" aria-valuemin="0" aria-valuemax="{{ prog.monthly_goal }}">
             </div>
         </div>

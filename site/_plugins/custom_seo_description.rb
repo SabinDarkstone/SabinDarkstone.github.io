@@ -11,7 +11,7 @@ module CustomSeoDescription
         # Create a custom SEO description
         custom = []
         custom << "#{reading_time} min read •" if reading_time
-        custom << "Tagsd: #{tag_string} • " if tag_string
+        custom << "Tags: #{tag_string} • " if tag_string
         custom << excerpt
 
         doc.data["description"] = custom.join(" ").strip
