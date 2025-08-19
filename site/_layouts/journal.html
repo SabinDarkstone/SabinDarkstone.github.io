@@ -11,16 +11,25 @@ layout: default
         <div class="col-12 col-lg-9 px-4 py-4">
             {% include entry-status.html %}
             {% include breadcrumbs.html %}
-
-            <h5>{{ page.date | date: "%b %d, %Y" }}</h5>
-            <h1>{{ page.title }}</h1>
-
-            {% include entry-top-widgets.html %}
-            {{ content }}
-
-            <hr>
             
-            {% include series-nav.html %}
+            <div class="card mb-3">
+                <div class="card-body">
+                    <h5>{{ page.date | date: "%b %d, %Y" }}</h5>
+                    <h1>{{ page.title }}</h1>
+                    <hr>
+
+                    {% include entry-top-widgets.html %}
+                </div>
+            </div>
+
+            <div class="card mb-3">
+                <div class="card-body">
+                    {{ content }}
+                    
+                    {% include series-nav.html %}
+                </div>
+            </div>
+        
             {% include related-entries.html %}
             <!-- {% include comments.html %} -->
         </div>

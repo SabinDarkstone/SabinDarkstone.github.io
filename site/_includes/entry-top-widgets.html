@@ -1,10 +1,25 @@
+{% comment %} Mood Tracker {% endcomment %}
+{% if page.mood and page.mood.size > 0 %}
+    <div class="d-flex flex-wrap gap-2 my-3">
+        <p class="mt-0 mb-0">
+            Mood
+            {% for mood in page.mood %}
+                {% include mood-badge.html name=mood %}
+            {% endfor %}
+        </p>
+    </div>
+{% endif %}
+
 {% comment %} Tags {% endcomment %}
 {% if page.tags and page.tags.size > 0 %}
     <div class="d-flex flex-wrap gap-2 my-3">
-        {% for tag in page.tags %}
-            {% assign slug = tag | slugify: "raw" %}
-            {% include tag-badge.html name=tag slug=slug %}
-        {% endfor %}
+        <p class="mt-0 mb-0">
+            Tags
+            {% for tag in page.tags %}
+                {% assign slug = tag | slugify: "raw" %}
+                {% include tag-badge.html name=tag slug=slug %}
+            {% endfor %}
+        </p>
     </div>
 {% endif %}
 
