@@ -4,7 +4,7 @@ collections:
     permalink: /Journal/:path.html
 
 url: "https://pupsabin.dog"
-timezone: "America/New_York"
+timezone: America/New_York
 baseurl: ""
 attachments_dir: "assets/imgs/attachments"
 
