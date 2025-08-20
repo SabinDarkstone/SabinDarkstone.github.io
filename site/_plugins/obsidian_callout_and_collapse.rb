@@ -111,19 +111,33 @@ module ObsidianCalloutAndCollapse
         icon = ICON_MAP[type] || "bi-info-circle"
         display_title = title.empty? ? type.capitalize : title
 
-        new_node = Nokogiri::HTML::DocumentFragment.parse <<~HTML
-            <div class="callout callout-#{type} mb-3">
-                <div class="callout-title d-flex align-items-center">
-                    <i class="bi #{icon} me-2"></i>
-                    <span class="callout-title-text">
-                        #{display_title}
-                    </span>
+        if (body_html.size > 4)
+            new_node = Nokogiri::HTML::DocumentFragment.parse <<~HTML
+                <div class="callout callout-#{type} mb-3">
+                    <div class="callout-title d-flex align-items-center">
+                        <i class="bi #{icon} me-2"></i>
+                        <span class="callout-title-text">
+                            #{display_title}
+                        </span>
+                    </div>
+                    <div class="callout-content">
+                        #{body_html}
+                    </div>
                 </div>
-                <div class="callout-content">
-                    #{body_html}
+            HTML
+        else
+            new_node = Nokogiri::HTML::DocumentFragment.parse <<~HTML
+                <div class="callout callout-#{type} mb-3">
+                    <div class="callout-title d-flex align-items-center">
+                        <i class="bi #{icon} me-2"></i>
+                        <span class="callout-title-text">
+                            #{display_title}
+                        </span>
+                    </div>
                 </div>
-            </div>
-        HTML
+            HTML
+        end
+        
         new_node
     end
 end
