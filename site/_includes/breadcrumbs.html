@@ -1,29 +1,33 @@
 <nav aria-label="breadcrumb">
-    <ol class="breadcrumb">
-        <li class="breadcrumb-item">
-            <a href="/">Home</a>
-        </li>
+    <div class="card mb-3">
+        <div class="card-body">
+            <ol class="breadcrumb">
+                <li class="breadcrumb-item">
+                    <a href="/">Home</a>
+                </li>
 
-        <li class="breadcrumb-item">
-            <a href="/Journal/welcome.html">Journal</a>
-        </li>
+                <li class="breadcrumb-item">
+                    <a href="/Journal/welcome.html">Journal</a>
+                </li>
 
-        {% if page.date %}
-            {% assign year = page.date | date: "%Y" %}
-            {% assign month_number = page.date | date: "%m" %}
-            {% assign month_name = page.date | date: "%B" %}
+                {% if page.date %}
+                    {% assign year = page.date | date: "%Y" %}
+                    {% assign month_number = page.date | date: "%m" %}
+                    {% assign month_name = page.date | date: "%B" %}
 
-            <li class="breadcrumb-item">
-                <a href="/Journal/{{ year }}/">{{ year }}</a>
-            </li>
+                    <li class="breadcrumb-item">
+                        <a href="/Journal/{{ year }}/">{{ year }}</a>
+                    </li>
 
-            <li class="breadcrumb-item">
-                <a href="/Journal/{{ year }}/{{ month_number }}/">{{ month_name }}</a>
-            </li>
-        {% endif %}
+                    <li class="breadcrumb-item">
+                        <a href="/Journal/{{ year }}/{{ month_number }}/">{{ month_name }}</a>
+                    </li>
+                {% endif %}
 
-        <li class="breadcrumb-item active" aria-current="page">
-            {{ page.title }}
-        </li>
-    </ol>
+                <li class="breadcrumb-item active" aria-current="page">
+                    {{ page.title }}
+                </li>
+            </ol>
+        </div>
+    </div>
 </nav>
