@@ -12,7 +12,7 @@ module PupTags
             process(@name)
             self.data = {
                 "layout" => "tag",
-                "title" => "Post Tagged \"#{tag}\"",
+                "title" => "Entries Tagged \"#{tag}\"",
                 "tag" => tag,
                 "slug" => slug,
                 "entries" => entries.sort_by { |d| d.data["date"] || Time.at(0) }.reverse,
