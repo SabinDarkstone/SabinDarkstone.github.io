@@ -9,12 +9,16 @@
         </li>
 
         {% if page.date %}
+            {% assign year = page.date | date: "%Y" %}
+            {% assign month_number = page.date | date: "%m" %}
+            {% assign month_name = page.date | date: "%B" %}
+
             <li class="breadcrumb-item">
-                {{ page.date | date: "%Y" }}
+                <a href="/Journal/{{ year }}/">{{ year }}</a>
             </li>
 
             <li class="breadcrumb-item">
-                {{ page.date | date: "%B" }}
+                <a href="/Journal/{{ year }}/{{ month_number }}/">{{ month_name }}</a>
             </li>
         {% endif %}
 
