@@ -26,7 +26,7 @@ Welcome to my journal!
 
 ## Change Log
 
-### 2025-08-21
+#### 2025-08-21
 - Adding dynamically generated archives pages to view posts by month and year on a separate page.
 - Clicking the year or the month in the breadcrumbs at the top of an entry will take you to the archive page
 
