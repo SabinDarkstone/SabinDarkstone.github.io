@@ -18,8 +18,9 @@
         <link rel="stylesheet" href="/assets/css/callouts.css" />
         <link rel="stylesheet" href="/assets/css/sidebar.css" />
 
-        {% seo %} {% if page.robots %}
-        <meta name="robots" content="{{ page.robots }}" />
+        {% seo %}
+        {% if page.robots %}
+            <meta name="robots" content="{{ page.robots }}" />
         {% endif %}
         
         <link rel="alternate" type="application/rss+xml" title="RSS Feed" href="{{ '/feed.xml' | relative_url }}">

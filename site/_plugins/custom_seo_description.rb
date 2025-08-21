@@ -14,6 +14,7 @@ module CustomSeoDescription
         custom << "Tags: #{tag_string} • " if tag_string
         custom << excerpt
 
+        doc.data["description2"] = excerpt.strip
         doc.data["description"] = custom.join(" ").strip
     end
 end
