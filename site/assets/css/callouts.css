@@ -11,6 +11,11 @@
     overflow: hidden;
 }
 
+[data-bs-theme="dark"] .callout {
+    --co-bg: color-mix(in srgb, var(--co-border) 14%, transparent);
+    --co-title-bg: color-mix(in srgb, var(--co-border) 22%, transparent);
+}
+
 /* Title bar */
 .callout .callout-title,
 .callout-title.btn-unstyled {

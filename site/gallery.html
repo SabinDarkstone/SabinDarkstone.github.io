@@ -11,9 +11,16 @@
                 height: 2em;
             }
         </style>
+
+        <script>
+            const storedTheme = localStorage.getItem("theme");
+            const preferredTheme = storedTheme || (window.matchMedia("(prefers-color-scheme: dark)").matches ? "dark" : "light");
+
+            document.documentElement.setAttribute("data-bs-theme", preferredTheme);
+        </script>
     </head>
 
-    <body>
+    <body onload="checkTheme()">
         <section class="container">
             <header class="d-flex flex-wrap justify-content-center py-3 mb-4 border-bottom">
                 <a class="d-flex flex-fill align-items-center mb-3 mb-md-0 me-md-auto link-body-emphasis text-decoration-none" href="/">
@@ -33,6 +40,12 @@
                         <a class="nav-link" href="/Journal/welcome.html">Journal</a>
                     </li>
                 </ul>
+
+                <div class="form-check form-switch ms-3">
+                    <input class="form-check-input" type="checkbox" id="theme-toggle"/>
+                    <label class="form-check-label" for="theme-toggle">Dark Mode</label>
+                </div>
+            </header>
         </section>
 
         <div class="px-4 py-5 my-5 text-center">
@@ -41,5 +54,20 @@
                 <p class="lead mb-4">This page is under construction.</p>
             </div>
         </div>
+
+        <script>
+            function checkTheme() {
+                const toggle = document.getElementById("theme-toggle");
+                if (!toggle) return;
+                
+                toggle.checked = document.documentElement.getAttribute("data-bs-theme") === "dark";
+                toggle.addEventListener("change", () => {
+                    console.log("Foo");
+                    const theme = toggle.checked ? "dark" : "light";
+                    document.documentElement.setAttribute("data-bs-theme", theme);
+                    localStorage.setItem("theme", theme);
+                });
+            }
+        </script>
     </body>
 </html>
