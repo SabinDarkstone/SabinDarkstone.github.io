@@ -26,6 +26,14 @@ Welcome to my journal!
 
 ## Change Log
 
+#### 2025-08-23
+- Migrated home and gallery pages to liquid framework
+- Navbar contents are now configured in the site yml
+- Refactored includes/layouts in the templating engine
+- Fixed journal urls having a capital "J"
+- Fixed tags pages not being under the journal url
+- Added automatic highlighting of "active" navbar pill based on page url
+
 #### 2025-08-22
 - Added dark mode
 
