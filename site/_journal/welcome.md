@@ -1,7 +1,7 @@
 ---
 layout: journal
 title: Welcome
-modified: 2025-08-17T18:34:11-04:00
+modified: 2025-08-22T17:39:46-04:00
 created: 2025-07-27 14:18:34
 tags:
   - ideas
@@ -25,6 +25,9 @@ Welcome to my journal!
 - What would normies think of my relationship with my partner
 
 ## Change Log
+
+#### 2025-08-22
+- Added dark mode
 
 #### 2025-08-21
 - Adding dynamically generated archives pages to view posts by month and year on a separate page.
