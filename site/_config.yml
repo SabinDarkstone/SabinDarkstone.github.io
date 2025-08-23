@@ -1,7 +1,7 @@
 collections:
   journal:
     output: true
-    permalink: /Journal/:path.html
+    permalink: /journal/:path.html
 
 url: "https://pupsabin.dog"
 timezone: America/New_York
@@ -11,7 +11,7 @@ attachments_dir: "assets/imgs/attachments"
 feed:
   path: feed.xml
   collections:
-    - journal  
+    - journal
 
 progress_tracker:
   monthly_goal: 20
@@ -27,3 +27,14 @@ defaults:
     values:
       image: assets/imgs/Journal_Image.jpg
       description: "A view into the life of gearhead werehusky sergal thing, Pup Sabin, one journal entry at a time."
+
+navbar:
+  - name: "index"
+    label: "Home"
+    url: "/index.html"
+  - name: "gallery"
+    label: "Gallery"
+    url: "/gallery.html"
+  - name: "journal"
+    label: "Journal"
+    url: "/journal/welcome.html"

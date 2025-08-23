@@ -32,16 +32,16 @@ module PupArchives
             docs = journal.docs.reject { |d| FrontMatterFlags.truthy?(d.data["private"]) }
 
             docs.group_by { |d| d.date.strftime("%Y") }.each do |year, year_docs|
-                year_dir = File.join("Journal", year)
+                year_dir = File.join("journal", year)
                 year_title = "Entries from #{year}"
-                year_permalink = "/Journal/#{year}/"
+                year_permalink = "/journal/#{year}/"
                 site.pages << ArchivePage.new(site, year_dir, year_title, year_docs, year_permalink)
                 
                 year_docs.group_by { |d| d.date.strftime("%m") }.each do |month, month_docs|
                     month_name = Date::MONTHNAMES[month.to_i]
-                    month_dir = File.join("Journal", year, month)
+                    month_dir = File.join("journal", year, month)
                     month_title = "#{month_name} #{year} Entries"
-                    month_permalink = "/Journal/#{year}/#{month}/"
+                    month_permalink = "/journal/#{year}/#{month}/"
                     site.pages << ArchivePage.new(site, month_dir, month_title, month_docs, month_permalink)  
                 end
             end

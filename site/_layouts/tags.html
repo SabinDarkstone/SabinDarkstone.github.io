@@ -4,7 +4,7 @@ layout: default
 
 <div class="container-fluid">
     <div class="row">
-        {% include sidebar.html %}
+        {% include sidebar/sidebar.html %}
 
         <div class="col-sm-9 px-4 py-4">
             <h1 class="mb-3">Tags</h1>
@@ -16,7 +16,7 @@ layout: default
                 <h3 class="mt-4">{{ group.name }}</h3>
                 <div class="d-flex flex-wrap gap-2 mb-3">
                     {% for t in group.items %}
-                        {% include tag-badge.html name=t.name slug=t.slug count=t.count %}
+                        {% include badges/tag-badge.html name=t.name slug=t.slug count=t.count %}
                     {% endfor %}
                 </div>
             {% endfor %}

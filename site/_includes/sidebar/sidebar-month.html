@@ -41,7 +41,7 @@
 {% assign month_count = month.items | size %}
 
 <li class="nav-header ms-2">
-    {% include sidebar-toggle.html
+    {% include sidebar/sidebar-toggle.html
         collapse_id=collapse_id
         is_open=is_open
         label=month.name
@@ -57,7 +57,7 @@
         {% endif %}
 
         {% if show_entry %}
-            {% include sidebar-entry.html entry=entry page=page %}
+            {% include sidebar/sidebar-entry.html entry=entry page=page %}
         {% endif %}
     {% endfor %}
 </ul>

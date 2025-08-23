@@ -2,7 +2,7 @@
     <div class="p-3">
         <h5>Journal</h5>
         
-        {% include sidebar-welcome.html page=page %}
+        {% include sidebar/sidebar-welcome.html page=page %}
 
         {% include progress-tracker.html %}
 
@@ -15,7 +15,7 @@
 
             {% assign by_year = others | group_by_exp: "item", "item.date | date: '%Y'" %}
             {% for year in by_year %}
-                {% include sidebar-year.html year=year page=page %}
+                {% include sidebar/sidebar-year.html year=year page=page %}
             {% endfor %}
         </ul>
     </div>

@@ -7,7 +7,7 @@
                 </li>
 
                 <li class="breadcrumb-item">
-                    <a href="/Journal/welcome.html">Journal</a>
+                    <a href="/journal/welcome.html">Journal</a>
                 </li>
 
                 {% if page.date %}
@@ -16,11 +16,11 @@
                     {% assign month_name = page.date | date: "%B" %}
 
                     <li class="breadcrumb-item">
-                        <a href="/Journal/{{ year }}/">{{ year }}</a>
+                        <a href="/journal/{{ year }}/">{{ year }}</a>
                     </li>
 
                     <li class="breadcrumb-item">
-                        <a href="/Journal/{{ year }}/{{ month_number }}/">{{ month_name }}</a>
+                        <a href="/journal/{{ year }}/{{ month_number }}/">{{ month_name }}</a>
                     </li>
                 {% endif %}
 

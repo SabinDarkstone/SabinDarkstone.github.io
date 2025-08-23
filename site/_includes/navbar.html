@@ -7,15 +7,19 @@
         </a>
 
         <ul class="nav nav-pills">
-            <li class="nav-item">
-                <a class="nav-link" href="/index.html">Home</a>
-            </li>
-            <li class="nav-item">
-                <a class="nav-link" href="/gallery.html">Gallery</a>
-            </li>
-            <li class="nav-item">
-                <a class="nav-link active" href="/Journal/welcome.html">Journal</a>
-            </li>
+            {% for nav in site.navbar %}
+            {% assign p = page.url | downcase %}
+                {% if page.url == "/" and nav.name == "index" %}
+                    {% assign active = true %}
+                {% elsif page.url contains nav.name %}
+                    {% assign active = true %}
+                {% else %}
+                    {% assign active = false %}
+                {% endif %}
+                <li class="nav-item">
+                    <a class="nav-link {% if active %}active{% endif %}" href="{{ nav.url }}">{{ nav.label }}</a>
+                </li>
+            {% endfor %}
         </ul>
 
         <div class="d-flex" style="height:40px;margin-left:20px;">

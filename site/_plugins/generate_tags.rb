@@ -17,7 +17,7 @@ module PupTags
                 "slug" => slug,
                 "entries" => entries.sort_by { |d| d.data["date"] || Time.at(0) }.reverse,
                 "count" => count,
-                "permalink" => "/tags/#{slug}"
+                "permalink" => "/journal/tags/#{slug}"
             }
         end
     end
@@ -49,7 +49,7 @@ module PupTags
                 "layout" => "tags",
                 "title" => "All Tags",
                 "tags" => tag_map.keys.sort.map { |t| { "name" => t, "slug" => Jekyll::Utils.slugify(t, mode: "raw"), "count" => tag_map[t].size } },
-                "permalink" => "/tags/"
+                "permalink" => "/journal/tags/"
             }
             site.pages << index
         end
