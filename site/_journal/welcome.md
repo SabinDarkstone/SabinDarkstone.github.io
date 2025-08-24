@@ -29,6 +29,7 @@ Welcome to my journal!
 #### 2025-05-24
 - Mood tags are color coded (may revert)
 - Added mood index pages like tags
+- Refactoring entry previews to be componentized
 
 #### 2025-08-23
 - Migrated home and gallery pages to liquid framework
