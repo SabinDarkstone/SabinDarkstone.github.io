@@ -26,7 +26,11 @@ Welcome to my journal!
 
 ## Change Log
 
-#### 2025-08-24
+#### 2025-08-24b
+- Added a new AMA in the "Ask Me" navbar. You can submit questions to me through the provided google form.
+- AMA questions are submitted as github issues.
+
+#### 2025-08-24a
 - Mood tags are color coded (may revert)
 - Added mood index pages like tags
 - Refactoring entry previews to be componentized
