@@ -1,7 +1,7 @@
 ---
 layout: journal
 title: Welcome
-modified: 2025-08-22T17:39:46-04:00
+modified: 2025-08-24T09:00:43-04:00
 created: 2025-07-27 14:18:34
 tags:
   - ideas
@@ -36,6 +36,7 @@ Welcome to my journal!
 
 #### 2025-08-22
 - Added dark mode
+- The site theme will initially infer from your system settings and remember your previous setting by using local storage.
 
 #### 2025-08-21
 - Adding dynamically generated archives pages to view posts by month and year on a separate page.
