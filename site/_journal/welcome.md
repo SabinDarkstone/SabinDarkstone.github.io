@@ -26,7 +26,7 @@ Welcome to my journal!
 
 ## Change Log
 
-#### 2025-05-24
+#### 2025-08-24
 - Mood tags are color coded (may revert)
 - Added mood index pages like tags
 - Refactoring entry previews to be componentized
