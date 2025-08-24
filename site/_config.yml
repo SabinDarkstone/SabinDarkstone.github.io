@@ -38,6 +38,9 @@ navbar:
   - name: "journal"
     label: "Journal"
     url: "/journal/welcome.html"
+  - name: "ama"
+    label: "Ask Me"
+    url: "/ama.html"
 
 moods:
   success:

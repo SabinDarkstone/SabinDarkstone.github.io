@@ -1,3 +1,22 @@
 .card-body {
     padding-bottom: 0 !important;
 }
+
+/* Keep it responsive and neat */
+.google-form-embed {
+  border: 0;
+  width: 100%;
+  height: 100%;
+}
+
+/* Bootstrap 5 dark mode usually toggles data-bs-theme="dark" on <html> or <body> */
+[data-bs-theme="dark"] .google-form-embed {
+  filter: invert(1) hue-rotate(180deg) contrast(0.95) brightness(0.9);
+}
+
+/* Optional: reduce glow around white areas when user prefers dark */
+@media (prefers-color-scheme: dark) {
+  [data-bs-theme="auto"] .google-form-embed {
+    filter: invert(1) hue-rotate(180deg) contrast(0.95) brightness(0.9);
+  }
+}
