@@ -1,11 +1,18 @@
 {% comment %} Mood Tracker {% endcomment %}
-{% if page.mood and page.mood.size > 0 %}
+{% if page.moods and page.moods.size > 0 %}
     <div class="d-flex flex-wrap gap-2 my-3">
         <p class="mt-0 mb-0">
-            Mood
-            {% for mood in page.mood %}
-                {% assign slude = mood | slugify: "raw" %}
-                {% include badges/mood-badge.html name=mood slug=slug %}
+            Moods
+            {% for mood in page.moods %}
+                {% assign slug = mood | slugify: "raw" %}
+
+                {% assign color = "primray" %}
+                {% for mood_color in site.moods %}
+                    {% if mood_color[1] contains mood %}
+                        {% assign color = mood_color[0] %}
+                    {% endif %}
+                {% endfor %}
+                {% include badges/mood-badge.html name=mood slug=slug color=color %}
             {% endfor %}
         </p>
     </div>

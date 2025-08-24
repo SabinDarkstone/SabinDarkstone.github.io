@@ -1,6 +1,7 @@
-<span class="badge text-bg-primary">
+<a class="badge text-bg-{{ include.color }} text-decoration-none"
+    href="/journal/moods/{{ include.slug }}">
     {{ include.name }}
     {% if include.count %}
         <span class="ms-1 badge text-bg-light">{{ include.count}} </span>
     {% endif %}
-</span>
+</a>

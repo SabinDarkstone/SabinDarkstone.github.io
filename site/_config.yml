@@ -38,3 +38,21 @@ navbar:
   - name: "journal"
     label: "Journal"
     url: "/journal/welcome.html"
+
+moods:
+  success:
+    - affectionate
+    - confident
+    - productive
+    - proud
+    - upbeat
+  warning:
+    - annoyed
+    - restless
+    - tired
+    - unfocused
+  primary:
+    - calm
+    - reflective
+  danger:
+    - angry

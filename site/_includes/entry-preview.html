@@ -1,0 +1,25 @@
+<a class="list-group-item list-group-item-action" href="{{ entry.url }}">
+    <div class="d-flex w-100 justify-content-between">
+        <h5 class="mb-1">
+            {{ entry.title | default: entry.basename }}
+        </h5>
+        <small class="text-muted">
+            {{ entry.date | date: "%b %d, %Y" }}
+        </small>
+    </div>
+    {% if entry.description2 %}
+        <p class="mb-1 text-muted">
+            {{ entry.description2 }}
+        </p>
+    {% endif %}
+    
+    {% if entry.tags and entry.tags.size > 0 %}
+        <div class="d-flex flex-wrap gap-2 mt-2">
+            {% for tag in entry.tags %}
+            <span class="badge rounded-pill text-bg-light">
+                #{{ tag }}
+            </span>
+            {% endfor %}
+        </div>
+    {% endif %}
+</a>

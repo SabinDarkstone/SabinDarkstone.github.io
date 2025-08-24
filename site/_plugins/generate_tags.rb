@@ -43,12 +43,16 @@ module PupTags
                 site.pages << TagPage.new(site, tag, slug, docs, docs.size)
             end
 
-            # A tag index page: /tag/
+            # A tag index page: /journal/tags
             index = Jekyll::PageWithoutAFile.new(site, site.source, "tags", "index.html")
             index.data = {
                 "layout" => "tags",
                 "title" => "All Tags",
-                "tags" => tag_map.keys.sort.map { |t| { "name" => t, "slug" => Jekyll::Utils.slugify(t, mode: "raw"), "count" => tag_map[t].size } },
+                "tags" => tag_map.keys.sort.map { |t| {
+                    "name" => t,
+                    "slug" => Jekyll::Utils.slugify(t, mode: "raw"),
+                    "count" => tag_map[t].size }
+                },
                 "permalink" => "/journal/tags/"
             }
             site.pages << index
