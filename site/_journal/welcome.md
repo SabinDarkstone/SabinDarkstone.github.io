@@ -13,7 +13,6 @@ date: 2025-07-27
 Welcome to my journal!
 
 ## Future Topic Ideas
-- My parents snooping as I grew up
 - Issues with my sexuality and identity growing up
 - Depression in college and treatment
 - "Fragment" song by Stupendium
