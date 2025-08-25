@@ -37,11 +37,12 @@ jobs:
         working-directory: site
         run: |
           bundle config path vendor/bundle
-          bundle install
+          bundle install --jobs 4 --retry 3
 
-      - name: Build Jekyll site + copy static HTML
-        # keep working-dir so Jekyll reads site/_config.yml, _includes/, _layouts/, plus ANY html files in site/
+      - name: Build Jekyll site
         working-directory: site
+        env:
+          JEKYLL_ENV: production
         run: |
           # wipe any old build
           rm -rf ../deploy
@@ -51,9 +52,6 @@ jobs:
       - name: Upload Pages artifact
         uses: actions/upload-pages-artifact@v3
         with:
-          # this folder now contains:
-          # • all your original static html/assets from site/
-          # • PLUS the pages Jekyll generated (journal collection, layouts, etc.)
           path: deploy
 
   deploy:
