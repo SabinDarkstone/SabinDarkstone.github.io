@@ -25,16 +25,28 @@ jobs:
           ruby-version: '3.2'
           bundler-cache: true
 
+      - name: Cache Ruby gems
+        uses: actions/cache@v4
+        with:
+          path: vendor/bundle
+          key: ${{ runner.os }}-gems-${{ hashFiles('**/Gemfile.lock') }}
+          restore-keys: |
+            ${{ runner.os }}-gems-
+
+      - name: Install gems
+        working-directory: site
+        run: |
+          bundle config path vendor/bundle
+          bundle install
+
       - name: Build Jekyll site + copy static HTML
         # keep working-dir so Jekyll reads site/_config.yml, _includes/, _layouts/, plus ANY html files in site/
         working-directory: site
-        env:
-          JEKYLL_ENV: production  # some plugins behave differently in production mode
         run: |
           # wipe any old build
           rm -rf ../deploy
           # build everything in `site/` into ../deploy
-          bundle exec jekyll build --destination ../deploy --verbose
+          bundle exec jekyll build --destination ../deploy
 
       - name: Upload Pages artifact
         uses: actions/upload-pages-artifact@v3
