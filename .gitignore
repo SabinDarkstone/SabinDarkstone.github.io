@@ -1,5 +1,4 @@
 deploy
-*.lock
 .obsidian
 .env
 *.json
