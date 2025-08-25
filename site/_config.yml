@@ -1,7 +1,7 @@
 collections:
   journal:
     output: true
-    permalink: /journal/:path.html
+    permalink: /journal/:uuid.html
 
 url: "https://pupsabin.dog"
 timezone: America/New_York
@@ -51,5 +51,6 @@ moods:
   primary:
     - calm
     - reflective
+    - bored
   danger:
     - angry
