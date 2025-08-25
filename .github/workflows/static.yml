@@ -29,7 +29,7 @@ jobs:
         uses: actions/cache@v4
         with:
           path: vendor/bundle
-          key: ${{ runner.os }}-gems-${{ hashFiles('**/Gemfile.lock') }}
+          key: ${{ runner.os }}-gems-${{ hashFiles('site/Gemfile.lock') }}
           restore-keys: |
             ${{ runner.os }}-gems-
 
