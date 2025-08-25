@@ -4,15 +4,13 @@ require_relative "obsidian_embed"
 require_relative "obsidian_wikilinks"
 require_relative "custom_seo_description"
 require_relative "obsidian_callout_and_collapse"
-require_relative "journal_id_permalink"
 
 PRE_RENDER_PLUGINS = [
     PrivacyGuards,
     EstimatedReadingTime,
     ObsidianEmbed,
     ObsidianWikilinks,
-    CustomSeoDescription,
-    JournalIdPermalink
+    CustomSeoDescription
 ]
 
 POST_RENDER_PLUGINS = [
