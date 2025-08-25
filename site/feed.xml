@@ -1,0 +1,25 @@
+---
+layout: null
+permalink: /feed.xml
+---
+
+<?xml version="1.0" encoding="UTF-8"?>
+<rss version="2.0" xlmns:content="http://purl.org/rss/1.0/modules/content/">
+    <channel>
+        <title>Pup Sabin - Journal</title>
+        <link>{{ site.url | append: site.baseurl }}/journal/</link>
+        <description>{{ site.description | xml_escape }}</description>
+        <lastBuildDate>{{ site.time | date: "%a, %d %b %Y %H:%M:%S %z" }}</lastBuildDate>
+
+        {% assign entries = site.journal | sort: "date" | reverse %}
+        {% for entry in entries %}
+            <item>
+                <title>{{ entry.title | xml_escape }}</title>
+                <link>{{ site.url | append: entry.url }}</link>
+                <guid isPermaLink="true">{{ site.url | append: entry.url }}</guid>
+                <pubDate>{{ entry.date | date: "%a, %d %b %Y %H:%M:%S %z" }}</pubDate>
+                <description><![CDATA[{{ entry.description | strip | replace_regex: '^>.*\n?', '' | markdownify }}]]></description>
+            </item>
+        {% endfor %}
+    </channel>
+</rss>

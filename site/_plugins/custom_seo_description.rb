@@ -3,7 +3,7 @@ module CustomSeoDescription
         # Ignore any non-html files
         return unless doc.output_ext == ".html"
 
-        # Extractr reading time, tags, and the excerpt
+        # Extract reading time, tags, and the excerpt
         reading_time = doc.data["reading_time"]
         tag_string = Array(doc.data["tags"]).join(", ")
         excerpt = doc.data["description"] || doc.data["excerpt"] || ""
