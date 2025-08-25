@@ -1,7 +1,6 @@
 collections:
   journal:
     output: true
-    permalink: /journal/:uuid.html
 
 url: "https://pupsabin.dog"
 timezone: America/New_York
@@ -13,6 +12,7 @@ progress_tracker:
 
 plugins:
   - jekyll-seo-tag
+  - jekyll-minifier
 
 defaults:
   - scope:
