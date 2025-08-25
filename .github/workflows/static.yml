@@ -25,19 +25,6 @@ jobs:
           ruby-version: '3.2'
           bundler-cache: true
 
-      - name: Cache Ruby gems
-        uses: actions/cache@v4
-        with:
-          path: vendor/bundle
-          key: ${{ runner.os }}-gems-${{ hashFiles('**/Gemfile.lock') }}
-          restore-keys: |
-            ${{ runner.os }}-gems-
-
-      - name: Install gems
-        run: |
-          bundle config path vendor/bundle
-          bundle install --jobs 4 --retry 3
-
       - name: Build Jekyll site + copy static HTML
         # keep working-dir so Jekyll reads site/_config.yml, _includes/, _layouts/, plus ANY html files in site/
         working-directory: site
