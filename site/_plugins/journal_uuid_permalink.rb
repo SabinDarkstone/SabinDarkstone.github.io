@@ -12,6 +12,8 @@ module JournalUuidPermalink
 
                 url = "/journal/#{uuid}.html"
 
+                Jekyll::logger.info "Setting permalink for #{doc.relative_path} to #{url}"
+
                 doc.data['permalink'] = url
                 doc.instance_variable_set(:@url, url)
             end

@@ -35,11 +35,11 @@ module RelatedEntries
             content_score = jaccard(words(a), words(b))
 
             output = a.data["title"] + " <-> " + b.data["title"] + ": " + tag_score.to_s + " + " + content_score.to_s + " = " + (tag_score + content_score).to_s
-            puts output
+            Jekyll::logger.info output
 
             tag_score + content_score
         rescue => e
-            puts "Error scoring #{a.data['title']} and #{b.data['title']}: #{e}"
+            Jekyll::logger.info "Error scoring #{a.data['title']} and #{b.data['title']}: #{e}"
             0.0
         end
 

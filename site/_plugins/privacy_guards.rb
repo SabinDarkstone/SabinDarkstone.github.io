@@ -9,6 +9,8 @@ module PrivacyGuards
         is_private = FrontMatterFlags.truthy?(doc.data["private"])
         return unless is_private
 
+        Jekyll::logger.info "Applying privacy guards to private document #{doc.relative_path}"
+
         # Set data on the document
         doc.data["sitemap"] = false
         doc.data["robots"] = "noindex,nofollow"

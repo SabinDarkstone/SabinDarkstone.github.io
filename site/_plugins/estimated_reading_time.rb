@@ -5,6 +5,8 @@ module EstimatedReadingTime
         # Ignore any non-html files and empty files
         return unless doc.output_ext == ".html" && doc.content
 
+        Jekyll::logger.info "Calculating estimated reading time for #{doc.relative_path}"
+
         average_words_per_minute = 200
         
         # Strip markdown code fences and liquid tags

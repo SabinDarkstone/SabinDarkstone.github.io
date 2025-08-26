@@ -50,6 +50,8 @@ module ProgressTracker
             #     format('%.2f,%.2f', x, y)
             # end.join(" ")
 
+            Jekyll::logger.info "Progress Tracker: #{entries_this_month} entries this month, #{words_this_month} words, #{streak}-day streak"
+
             site.config["progress"] = {
                 "entries_this_month" => entries_this_month,
                 "monthly_goal" => goal,

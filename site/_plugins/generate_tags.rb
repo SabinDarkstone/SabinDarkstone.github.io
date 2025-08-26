@@ -40,6 +40,8 @@ module PupTags
 
             tag_map.each do |tag, docs|
                 slug = Jekyll::Utils.slugify(tag, mode: "raw")
+
+                Jekyll::logger.info "Generating tag page for #{tag} (#{docs.size} entries)"
                 site.pages << TagPage.new(site, tag, slug, docs, docs.size)
             end
 
@@ -55,6 +57,8 @@ module PupTags
                 },
                 "permalink" => "/journal/tags/"
             }
+            
+            Jekyll::logger.info "Generating tag index with #{tag_map.keys.size} tags"
             site.pages << index
         end
     end

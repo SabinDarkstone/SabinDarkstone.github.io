@@ -49,6 +49,8 @@ module PupMoods
             mood_map.each do |mood, docs|
                 slug = Jekyll::Utils.slugify(mood, mode: "raw")
                 color = mood_color_lookup[mood]
+
+                Jekyll::logger.info "Generating mood page for #{mood} (#{docs.size} entries)"
                 site.pages << MoodPage.new(site, mood, slug, docs, docs.size, color)
             end
 
@@ -67,6 +69,8 @@ module PupMoods
                 },
                 "permalink" => "/journal/moods/"
             }
+
+            Jekyll::logger.info "Generating mood index with #{mood_map.keys.size} moods"
             site.pages << index
         end
     end

@@ -14,6 +14,8 @@ module ObsidianWikilinks
             target = journal.docs.find { |d| d.data["basename"] == file || d.basename_without_ext == file }
             href = target ? target.url : "#{base_url}/Journal/${file}.html"
 
+            Jekyll::logger.info "Converting wikilink [[#{file}|#{text}]] to markdown link [#{label}](#{href})"
+
             "[#{label}](#{href})"
         end
     end  
