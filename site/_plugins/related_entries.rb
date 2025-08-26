@@ -30,10 +30,17 @@ module RelatedEntries
         def score(a, b)
             tags_a = a.data["tags"] || []
             tags_b = b.data["tags"] || []
-            tag_score = (tags_a & tags_b).length * 2
+            tag_score = (tags_a & tags_b).length * 1.25
 
             content_score = jaccard(words(a), words(b))
+
+            output = a.data["title"] + " <-> " + b.data["title"] + ": " + tag_score.to_s + " + " + content_score.to_s + " = " + (tag_score + content_score).to_s
+            puts output
+
             tag_score + content_score
+        rescue => e
+            puts "Error scoring #{a.data['title']} and #{b.data['title']}: #{e}"
+            0.0
         end
 
         def jaccard(words_a, words_b)

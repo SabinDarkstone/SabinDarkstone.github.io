@@ -11,7 +11,7 @@ module PupTags
             
             process(@name)
             self.data = {
-                "layout" => "tag",
+                "layout" => "metalist",
                 "title" => "Entries Tagged \"#{tag}\"",
                 "tag" => tag,
                 "slug" => slug,

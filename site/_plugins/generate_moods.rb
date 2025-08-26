@@ -11,7 +11,7 @@ module PupMoods
             
             process(@name)
             self.data = {
-                "layout" => "mood",
+                "layout" => "metalist",
                 "title" => "Entries with Mood \"#{mood}\"",
                 "mood" => mood,
                 "slug" => slug,
