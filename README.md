@@ -1,0 +1,1 @@
+[![Build & Deploy Journal](https://github.com/SabinDarkstone/SabinDarkstone.github.io/actions/workflows/static.yml/badge.svg)](https://github.com/SabinDarkstone/SabinDarkstone.github.io/actions/workflows/static.yml)
