@@ -25,6 +25,10 @@ Welcome to my journal!
 
 ## Change Log
 
+#### 2025-08-26
+- Fixed workflow caching to actually work and speed up builds
+- Consolidated the mood/ and tag/ pages into a single layout
+
 #### 2025-08-25
 - Changed permalinks to be UUIDs to allow private entries to have less predictable URLs
 - Added a minifier to compress down html and css
