@@ -28,7 +28,7 @@ jobs:
       - name: Cache Ruby gems
         uses: actions/cache@v4
         with:
-          path: vendor/bundle
+          path: site/vendor/bundle
           key: ${{ runner.os }}-gems-${{ hashFiles('site/Gemfile.lock') }}
           restore-keys: |
             ${{ runner.os }}-gems-
