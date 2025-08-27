@@ -1,5 +1,5 @@
 require "date"
-require_relative "helpers/formatting"
+require_relative "../helpers/formatting"
 
 module ProgressTracker
     class Generator < Jekyll::Generator

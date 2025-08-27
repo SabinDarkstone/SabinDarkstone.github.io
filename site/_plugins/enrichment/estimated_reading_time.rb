@@ -1,4 +1,4 @@
-require_relative "helpers/formatting"
+require_relative "../helpers/formatting"
 
 module EstimatedReadingTime
     def self.pre_render(doc)

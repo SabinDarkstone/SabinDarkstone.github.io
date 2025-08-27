@@ -1,9 +1,9 @@
 require_relative "privacy_guards"
-require_relative "estimated_reading_time"
-require_relative "obsidian_embed"
-require_relative "obsidian_wikilinks"
-require_relative "custom_seo_description"
-require_relative "obsidian_callout_and_collapse"
+require_relative "enrichment/estimated_reading_time"
+require_relative "enrichment/custom_seo_description"
+require_relative "transform/obsidian_embed"
+require_relative "transform/obsidian_wikilinks"
+require_relative "transform/obsidian_callout_and_collapse"
 
 PRE_RENDER_PLUGINS = [
     PrivacyGuards,

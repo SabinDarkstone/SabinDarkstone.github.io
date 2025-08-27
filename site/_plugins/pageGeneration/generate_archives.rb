@@ -1,6 +1,6 @@
 require "jekyll"
 require "date"
-require_relative "helpers/flags"
+require_relative "../helpers/flags"
 
 module PupArchives
     class ArchivePage < Jekyll::PageWithoutAFile

@@ -1,5 +1,5 @@
 require "jekyll"
-require_relative "helpers/flags"
+require_relative "../helpers/flags"
 
 module PupTags
     class TagPage < Jekyll::PageWithoutAFile
