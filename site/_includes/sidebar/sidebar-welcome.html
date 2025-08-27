@@ -3,6 +3,14 @@
 {% assign welcome = journal_public | where: "title", "Welcome" | first %}
 {% if welcome %}
     <li class="nav-item" style="list-style: none">
+        <a class="nav-link {% if page.url contains '/search/' %}active fw-bold{% endif %}" href="/journal/search/">
+            Search
+        </a>
+    </li>
+
+    <hr>
+
+    <li class="nav-item" style="list-style: none">
         <a class="nav-link {% if page.url == welcome.url %}active fw-bold{% endif %}" href="{{ welcome.url }}">
             {{ welcome.title | default: welcome.basename }}
         </a> 

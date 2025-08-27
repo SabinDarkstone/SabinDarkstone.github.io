@@ -3,7 +3,7 @@
 {% endcomment %}
 
 {% assign welcome = site.journal | where: "title", "Welcome" | first %}
-{% assign is_welcome = page.url == welcome.url or page.url contains '/tags/' %}
+{% assign is_welcome = page.url == welcome.url or page.url contains '/tags/' or page.url contains '/moods/' or page.url contains '/search/' %}
 {% assign recent = site.journal
     | where_exp: "i", "i.title != 'Welcome'"
     | sort: "date" | reverse | first %}

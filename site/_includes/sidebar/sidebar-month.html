@@ -4,10 +4,7 @@
 
 {% assign welcome = journal_public | where: "title", "Welcome" | first %}
 
-{% assign is_welcome = false %}
-{% if page.url == welcome.url or page.url contains '/tags/' %}
-    {% assign is_welcome = true %}
-{% endif %}
+{% assign is_welcome = page.url == welcome.url or page.url contains '/tags/' or page.url contains '/moods/' or page.url contains '/search/' %}
 
 {% assign recent = site.journal
     | where_exp: "i", "i.title != 'Welcome'"

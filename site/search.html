@@ -1,0 +1,28 @@
+---
+layout: default
+title: Search
+permalink: /journal/search/
+---
+
+<div class="container-fluid">
+    <div class="row">
+        {% include sidebar/sidebar.html %}
+
+        <div class="col-sm-9 px-4 py-4">
+            <h1 class="mb-3">Search</h1>
+
+            <form class="mb-3" role="search" onsubmit="go(event)">
+                <div class="input-group">
+                    <input id="q" class="form-control" type="search" placeholder="Search entries...">
+                    <button class="btn btn-primary" type="submit">Search</button>
+                </div>
+            </form>
+
+            <div id="meta" class="text-muted mb-2"></div>
+            <div id="results" class="list-group"></div>
+        </div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/lunr/lunr.min.js"></script>
+    <script src="/assets/js/search.js"></script>
+</div>
