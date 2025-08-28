@@ -1,0 +1,25 @@
+---
+layout: null
+permalink: /assets/search.json
+sitemap: false
+---
+
+[
+    {%- assign entries = site.journal
+        | where_exp: "i", "i.private != true"
+        | where_exp: "i", "i.status == 'published'"
+        | sort: date
+    -%}
+
+    {%- for d in entries -%}
+        {
+            "id": {{ d.id | jsonify }},
+            "url": {{ d.url | jsonify }},
+            "title": {{ d.title | default: d.basename | jsonify }},
+            "date": {{ d.date | date_to_xmlschema | jsonify }},
+            "tags": {{ d.tags | jsonify }},
+            "summary": {{ d.description | default d.excerpt | strip_html | normalize_whitespace | jsonify }},
+            "body": {{ d.content | obsidian_clean | strip_html | normalize_whitespace | truncate: 50000 | jsonify }}
+        }{%- unless forloop.last %},{% endunless %}
+    {% endfor %}
+]

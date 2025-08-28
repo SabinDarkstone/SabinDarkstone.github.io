@@ -1,7 +1,6 @@
 deploy
 .obsidian
 .env
-*.json
 
 /site/_journal/.obsidian
 /site/_site
