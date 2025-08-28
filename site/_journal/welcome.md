@@ -9,6 +9,7 @@ tags:
   - meta
 description: Welcome to my online journal where I write about what's going on in my life.
 date: 2025-07-27
+uuid: welcome
 ---
 Welcome to my journal!
 
@@ -24,6 +25,14 @@ Welcome to my journal!
 - What would normies think of my relationship with my partner
 
 ## Change Log
+
+#### 2025-08-28
+- Adding a search box to the sidebar
+- Cleaning up JS and compressing it in the markdown
+
+#### 2025-08-27
+- Adding search functionality
+- You can now search for entries based on their name, tags, moods, and content
 
 #### 2025-08-26
 - Fixed workflow caching to actually work and speed up builds
