@@ -47,12 +47,12 @@ jobs:
           bundle exec jekyll build
       
       - name: Debug artifact contents
-        run: ls -R _site/assets
+        run: ls -R site/assets
 
       - name: Upload Pages artifact
         uses: actions/upload-pages-artifact@v3
         with:
-          path: _site
+          path: site
 
   deploy:
     needs: build
