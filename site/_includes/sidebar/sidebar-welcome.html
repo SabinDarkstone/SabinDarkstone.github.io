@@ -3,9 +3,13 @@
 {% assign welcome = journal_public | where: "title", "Welcome" | first %}
 {% if welcome %}
     <li class="nav-item" style="list-style: none">
-        <a class="nav-link {% if page.url contains '/search/' %}active fw-bold{% endif %}" href="/journal/search/">
-            Search
-        </a>
+        {% if page.url contains "search" %}
+            <a class="nav-link active fw-bold">Search</a>
+        {% else %}
+            <form class="d-flex mb-0" role="search" onsubmit="location.href='{{ '/journal/search/' | relative_url }}?q='+encodeURIComponent(this.q.value); return false;">
+                <input class="form-control form-control-sm me-2" type="search" name="q" placeholder="Search for an entry…" aria-label="Search">
+            </form>
+        {% endif %}
     </li>
 
     <hr>

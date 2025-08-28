@@ -23,8 +23,8 @@ defaults:
       description: "A view into the life of gearhead werehusky sergal thing, Pup Sabin, one journal entry at a time."
 
 jekyll-minifier:
-  exclude: 'feed.xml'
-  compress_javascript: false
+  exclude: "feed.xml"
+  compress_javascript: true
 
 navbar:
   - name: "index"
