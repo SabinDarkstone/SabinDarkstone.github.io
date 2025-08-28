@@ -28,31 +28,29 @@ jobs:
       - name: Cache Ruby gems
         uses: actions/cache@v4
         with:
-          path: site/vendor/bundle
-          key: ${{ runner.os }}-gems-${{ hashFiles('site/Gemfile.lock') }}
+          path: vendor/bundle
+          key: ${{ runner.os }}-gems-${{ hashFiles('Gemfile.lock') }}
           restore-keys: |
             ${{ runner.os }}-gems-
 
       - name: Install gems
-        working-directory: site
         run: |
           bundle config path vendor/bundle
           bundle install --jobs 4 --retry 3
 
       - name: Build Jekyll site
-        working-directory: site
         env:
           JEKYLL_ENV: production
         run: |
           bundle exec jekyll build
       
-      - name: Debug artifact contents
-        run: ls -R site/assets
+      - name: Debug built site
+        run: ls -R _site
 
       - name: Upload Pages artifact
         uses: actions/upload-pages-artifact@v3
         with:
-          path: site
+          path: _site
 
   deploy:
     needs: build
