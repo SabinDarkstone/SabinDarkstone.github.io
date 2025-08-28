@@ -70,7 +70,7 @@ function renderItem(doc, result, query) {
         <h5 class="mb-1">${escapeHTML(doc.title)}</h5>
         ${doc.date ? `<small class="text-muted">${new Date(doc.date).toLocaleDateString()}</small>` : ''}
         </div>
-        ${doc.tags?.length ? `<div class="mb-1">${doc.tags.map(t => `<span class="badge text-bg-light me-1">${escapeHTML(t)}</span>`).join('')}</div>` : ''}
+        ${doc.tags.length ? `<div class="mb-1">${doc.tags.map(t => `<span class="badge text-bg-light me-1">${escapeHTML(t)}</span>`).join('')}</div>` : ''}
         <p class="mb-1">${snippetHtml}</p>
     `;
     return a;
@@ -94,8 +94,8 @@ function makeSnippet(doc, result) {
         bodyPositions.sort((a, b) => a[0] - b[0]);
         const [start, len] = bodyPositions[0];
 
-        const WINDOW_BEFORE = 50;
-        const WINDOW_AFTER = 50;
+        const WINDOW_BEFORE = 120;
+        const WINDOW_AFTER = 120;
 
         const from = Math.max(0, start - WINDOW_BEFORE);
         const to = Math.min(body.length, start + len + WINDOW_AFTER);
@@ -123,7 +123,7 @@ function fallbackSummary(doc) {
 function safeHighlight(text, query) {
     try {
         return highlight(text, query);
-    } catch {
+    } catch (err) {
         return escapeHTML(text);
     }
 }
