@@ -44,10 +44,10 @@ jobs:
         env:
           JEKYLL_ENV: production
         run: |
-          # wipe any old build
-          rm -rf ../deploy
-          # build everything in `site/` into ../deploy
-          bundle exec jekyll build --destination ../deploy
+          bundle exec jekyll build
+      
+      - name: Debug artifact contents
+        run: ls -R _site/assets
 
       - name: Upload Pages artifact
         uses: actions/upload-pages-artifact@v3
