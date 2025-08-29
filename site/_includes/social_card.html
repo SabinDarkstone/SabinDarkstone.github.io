@@ -1,0 +1,21 @@
+<div class="card" style="max-width: 500px">
+    <div class="card-header d-flex align-items-center gap-4">
+        <div class="feature-icon d-inline-flex align-items-center justify-content-center fs-2">
+            <img class="icon-size" src="{{ social.iconUrl }}" alt="{{ social.iconAlt }}"/>
+        </div>
+        <h3 class="fs-2 text-body-emphases">{{ social.name }}</h3>
+    </div>
+    <div class="card-body">
+        <p>{{ social.description }}</p>
+        {% if social.addedImage %}
+            <div class="p-3">
+                <div class="d-flex justify-content-center">
+                    <img src="{{ social.addedImage }}" width="150"/>
+                </div>
+            </div>
+        {% endif %}
+    </div>
+    <div class="card-footer">
+        <a class="icon-link" href="{{ social.linkUrl }}">{{ social.linkText }}</a>
+    </div>
+</div>
