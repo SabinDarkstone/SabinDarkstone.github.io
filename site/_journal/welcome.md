@@ -26,6 +26,10 @@ Welcome to my journal!
 
 ## Change Log
 
+#### 2025-08-29
+- Updating home page to show social media links in cards
+- Social media cards are now defined in the config and rendered dynamically based on liquid templates
+
 #### 2025-08-28
 - Adding a search box to the sidebar
 - Cleaning up JS and compressing it in the markdown
