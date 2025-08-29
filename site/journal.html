@@ -4,3 +4,47 @@ permalink: /journal/welcome.html
 ---
 
 <h1>Welcome to My Journal</h1>
+
+{% assign recent_entries = site.journal | sort: "date" | reverse | slice: 0,3 %}
+{% assign recent_release = site.data.changelog | last %}
+{% assign ideas = site.data.ideas %}
+
+<div class="mt-4 px-4">
+    <div class="mb-5">
+        <h4 class="px-4">Check Out My Recent Entries</h4>
+        <div class="list-group">
+            {% for entry in recent_entries %}
+                {% include entry-preview.html entry=entry %}
+            {% endfor %}
+        </div>
+    </div>
+
+    <div class="mb-5">
+        <h4 class="px-4">Newest Update!</h4>
+        <div class="card mb-4">
+            <div class="card-body">
+                <h4 class="card-title">{{ recent_release.version }}</h4>
+                <small class="text-muted">{{ recent_release.date }}</small>
+                <hr>
+                <ul>
+                    {% for change in recent_release.changes %}
+                        <li>{{ change }}</li>
+                    {% endfor %}
+                </ul>
+            </div>
+        </div>
+    </div>
+
+    <div class="mb-5">
+        <h4 class="px-4">Upcoming Ideas</h4>
+        <div class="card mb-4">
+            <div class="card-body">
+                <ul>
+                    {% for idea in ideas %}
+                        <li>{{ idea }}</li>
+                    {% endfor %}
+                </ul>
+            </div>
+        </div>
+    </div>
+</div>
