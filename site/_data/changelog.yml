@@ -1,0 +1,121 @@
+- version: 1.0.0
+  date: 2025-07-20
+  changes:
+    - Added sidebar navigation with entries grouped by year and month based on the date in the frontmatter of the markdown file
+    - Added tags at the top of the entry based on the tags in the frontmatter of the markdown file
+    - Updated journal layout
+
+- version: 1.1.0
+  date: 2025-07-26
+  changes:
+    - Adding spotify music links
+    - Adding custom support for obsidian callouts
+    - Reorganizing asset structure
+
+- version: 1.2.0
+  date: 2025-07-27
+  changes:
+    - Adding estimated read time
+    - Tweaking journal layout to read more information from frontmatter
+    - Adding wiki-links support to link between journal entries
+    - Adding future topics list
+
+- version: 1.2.1
+  date: 2025-07-28
+  changes:
+    - Updating how previews are built
+    - Adding descriptions to entries
+    - Refactoring layout of journal behind the scenes
+
+- version: 1.2.2
+  date: 2025-08-03
+  changes:
+    - Changing sidebar breakpoints
+    - Updating sidebar to be interactive tree
+
+- version: 1.2.3
+  date: 2025-08-10
+  changes:
+    - Tags on entries are now clickable to view all other entries with that tag
+    - Added tags sidebar item to view and navigate tages
+    - Made tags more modular for future enhancements
+
+- version: 1.2.4
+  date: 2025-08-16
+  changes:
+    - Adding support for images inserted into entries in a wikilink style
+    - Adding support for obsidian's callouts
+    - Updating the journaling music callout to be a special case since it uses bootstrap collapse
+
+- version: 1.3.0
+  date: 2025-08-17
+  changes:
+    - Adding a progress tracker to the sidebar to show stats about journal entries this month
+    - Adding support for journal entry series
+    - Adding navigation buttons to previous/next entries in a series
+    - Adding breadcrumbs for navigation, which will be improved upon in the future
+    - Technical design improvements and addressing technical debt in custom plugins
+    - Adding the ability to save entries as drafts to not be published yet
+    - Entries can now be marked as private and are not accessible in the sidebar or in the tag navigation page
+
+- version: 1.4.0
+  date: 2025-08-21
+  changes:
+    - Adding dynamically generated archives pages to view posts by month and year on a separate page.
+    - Clicking the year or the month in the breadcrumbs at the top of an entry will take you to the archive page
+
+- version: 1.4.1
+  date: 2025-08-22
+  changes:
+    - Added dark mode
+    - The site theme will initially infer from your system settings and remember your previous setting by using local storage.
+
+- version: 2.0.0
+  date: 2025-08-23
+  changes:
+    - Migrated home and gallery pages to liquid framework
+    - Navbar contents are now configured in the site yml
+    - Refactored includes/layouts in the templating engine
+    - Fixed journal urls having a capital "J"
+    - Fixed tags pages not being under the journal url
+    - Added automatic highlighting of "active" navbar pill based on page url
+
+- version: 2.1.0
+  date: 2025-08-24
+  changes:
+    - Added a new AMA in the "Ask Me" navbar. You can submit questions to me through the provided google form.
+    - AMA questions are submitted as github issues.
+    - Mood tags are color coded (may revert)
+    - Added mood index pages like tags
+    - Refactoring entry previews to be componentized
+
+- version: 2.1.1
+  date: 2025-08-25
+  changes:
+    - Changed permalinks to be UUIDs to allow private entries to have less predictable URLs
+    - Added a minifier to compress down html and css
+
+- version: 2.1.2
+  date: 2025-08-26
+  changes:
+    - Fixed workflow caching to actually work and speed up builds
+    - Consolidated the mood/ and tag/ pages into a single layout
+
+- version: 2.2.0
+  date: 2025-08-27
+  changes:
+    - Adding search functionality
+    - You can now search for entries based on their name, tags, moods, and content
+
+- version: 2.2.1
+  date: 2025-08-28
+  changes:
+    - Adding a search box to the sidebar
+    - Cleaning up JS and compressing it in the markdown
+
+- version: 2.3.0
+  date: 2025-08-29
+  changes:
+    - Updating home page to show social media links in cards
+    - Social media cards are now defined in the config and rendered dynamically based on liquid templates
+    - Changelog is now stored and displayed differently and is no longer part of the welcome page
