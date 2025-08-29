@@ -36,7 +36,7 @@ module PupMoods
             # Build lookup: mood string -> bootstrap color (from _config.yml)
             # Falls back to "primary" if not found.
             mood_color_lookup = Hash.new("primary")
-            (site.config["moods"] || {}).each do |color, mood_list|
+            (site.data["moods"] || {}).each do |color, mood_list|
                 Array(mood_list).each { |m| mood_color_lookup[m] = color }
             end
             

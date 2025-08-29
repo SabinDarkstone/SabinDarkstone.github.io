@@ -7,7 +7,7 @@
                 {% assign slug = mood | slugify: "raw" %}
 
                 {% assign color = "primray" %}
-                {% for mood_color in site.moods %}
+                {% for mood_color in site.data.moods %}
                     {% if mood_color[1] contains mood %}
                         {% assign color = mood_color[0] %}
                     {% endif %}

@@ -1,0 +1,17 @@
+success:
+  - affectionate
+  - confident
+  - productive
+  - proud
+  - upbeat
+warning:
+  - annoyed
+  - restless
+  - tired
+  - unfocused
+primary:
+  - calm
+  - reflective
+  - bored
+danger:
+  - angry
