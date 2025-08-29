@@ -30,7 +30,7 @@ layout: static
     <h2 class="pb-2 border-bottom">Social Medias</h2>
 
     <div class="d-flex flex-wrap gap-3 py-2">
-        {% for social in site.socials %}
+        {% for social in site.data.socials %}
             {% include social_card.html social=social %}
         {% endfor %}
     </div>
