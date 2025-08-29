@@ -113,9 +113,16 @@
     - Adding a search box to the sidebar
     - Cleaning up JS and compressing it in the markdown
 
-- version: 2.3.0
+- version: 3.0.0
   date: 2025-08-29
   changes:
     - Updating home page to show social media links in cards
-    - Social media cards are now defined in the config and rendered dynamically based on liquid templates
-    - Changelog is now stored and displayed differently and is no longer part of the welcome page
+    - Social media cards are rendered dynamically based on liquid templates
+    - The journal welcome page is more dynamic and features information about the blog in a nicer way
+    - Recent entries are featured at the top
+    - Only the most recent update to the site is displayed
+    - The full changelog is accessible in the new changelog page with a link in the sidebar
+    - Configuration file is cleaned up with extra config settings being moved to their own yml files
+    - Mood colors, social media information, releases, and ideas are stroed in separate yml files
+    - There is now a useful 404 page to help you find your way back to other journal entries
+    - Refactored how the moods, tags, archives, and other pages are templated to have less repetitive code
