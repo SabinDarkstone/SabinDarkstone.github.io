@@ -1,40 +1,30 @@
 ---
-layout: default
+layout: with_sidebar
 ---
 
-<div class="container-fluid">
-    <div class="row">
-        <!-- Sidebar -->
-        {% include sidebar/sidebar.html %}
+{% include entry-status.html %}
+{% include breadcrumbs.html %}
 
-        <!-- Main content -->
-        <div class="col-12 col-lg-9 px-4 py-4">
-            {% include entry-status.html %}
-            {% include breadcrumbs.html %}
-            
-            <div class="card mb-3">
-                <div class="card-header">
-                    <h5>{{ page.date | date: "%b %d, %Y" }}</h5>
-                </div>
-                <div class="card-body">
-                    <h1>{{ page.title }}</h1>
-                    <hr>
+<div class="card mb-3">
+    <div class="card-header">
+        <h5>{{ page.date | date: "%b %d, %Y" }}</h5>
+    </div>
+    <div class="card-body">
+        <h1>{{ page.title }}</h1>
+        <hr>
 
-                    {% include entry-top-widgets.html %}
-                </div>
-            </div>
-
-            <div class="card mb-3">
-                <div class="card-body">
-                    {{ content }}
-                    
-                    {% include series-nav.html %}
-                </div>
-            </div>
-        
-            {% include related-entries.html %}
-            
-            <!-- {% include comments.html %} -->
-        </div>
+        {% include entry-top-widgets.html %}
     </div>
 </div>
+
+<div class="card mb-3">
+    <div class="card-body">
+        {{ content }}
+        
+        {% include series-nav.html %}
+    </div>
+</div>
+
+{% include related-entries.html %}
+
+<!-- {% include comments.html %} -->
