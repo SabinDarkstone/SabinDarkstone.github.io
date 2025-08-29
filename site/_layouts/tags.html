@@ -1,25 +1,17 @@
 ---
-layout: default
+layout: with_sidebar
 ---
 
-<div class="container-fluid">
-    <div class="row">
-        {% include sidebar/sidebar.html %}
+<h1 class="mb-3">Tags</h1>
 
-        <div class="col-sm-9 px-4 py-4">
-            <h1 class="mb-3">Tags</h1>
-
-            {% assign grouped_tags = page.tags
-                | sort: "name"
-                | group_by_exp: "tag", "tag.name | slice: 0, 1 | upcase" %}
-            {% for group in grouped_tags %}
-                <h3 class="mt-4">{{ group.name }}</h3>
-                <div class="d-flex flex-wrap gap-2 mb-3">
-                    {% for t in group.items %}
-                        {% include badges/tag-badge.html name=t.name slug=t.slug count=t.count %}
-                    {% endfor %}
-                </div>
-            {% endfor %}
-        </div>
+{% assign grouped_tags = page.tags
+    | sort: "name"
+    | group_by_exp: "tag", "tag.name | slice: 0, 1 | upcase" %}
+{% for group in grouped_tags %}
+    <h3 class="mt-4">{{ group.name }}</h3>
+    <div class="d-flex flex-wrap gap-2 mb-3">
+        {% for t in group.items %}
+            {% include badges/tag-badge.html name=t.name slug=t.slug count=t.count %}
+        {% endfor %}
     </div>
-</div>
+{% endfor %}
