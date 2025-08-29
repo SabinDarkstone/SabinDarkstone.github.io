@@ -1,0 +1,21 @@
+---
+layout: with_sidebar
+permalink: /journal/changelog.html
+---
+
+<h1 class="mb-3">Change Log</h1>
+
+{% for release in site.data.changelog reversed %}
+    <div class="card mb-4">
+        <div class="card-body">
+            <h4 class="card-title">{{ release.version }}</h4>
+            <small class="text-muted">{{ release.date }}</small>
+            <hr>
+            <ul>
+                {% for change in release.changes %}
+                    <li>{{ change }}</li>
+                {% endfor %}
+            </ul>
+        </div>
+    </div>
+{% endfor %}
