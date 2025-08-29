@@ -7,7 +7,7 @@
         </a>
 
         <ul class="nav nav-pills">
-            {% for nav in site.navbar %}
+            {% for nav in site.data.navbar %}
             {% assign p = page.url | downcase %}
                 {% if page.url == "/" and nav.name == "index" %}
                     {% assign active = true %}
