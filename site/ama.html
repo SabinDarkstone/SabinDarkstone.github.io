@@ -36,8 +36,8 @@ permalink: /ama.html
 
             const formData = new FormData(form);
             const payload = {
-                question: formData.get("question")?.toString().trim(),
-                website: formData.get("website")?.toString().trim() || "",
+                question: formData.get("question") ? formData.get("question").toString().trim() : "",
+                website: formData.get("website") ? formData.get("website").toString().trim() : "",
                 tunstileToken: formData.get("cf-turnstile-response") || null
             };
 
