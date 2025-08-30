@@ -1,0 +1,5 @@
+worker: "wandering-band-e88e.sabin-darkstone"
+
+success: '<div class="alert alert-success mb-0">Thanks for your question!</div>'
+sending: '<div class="alert alert-info mb-0">Sending...</div>'
+error: '<div class="alert alert-danger mb-0">Sorry, there was a problem taking your question: ${ex.message}</div>'

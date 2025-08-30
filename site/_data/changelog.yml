@@ -126,3 +126,9 @@
     - Mood colors, social media information, releases, and ideas are stroed in separate yml files
     - There is now a useful 404 page to help you find your way back to other journal entries
     - Refactored how the moods, tags, archives, and other pages are templated to have less repetitive code
+
+- version: 3.1.0
+  date: 2025-08-30
+  changes:
+    - Ditched google forms for AMA
+    - AMA is now a custom form with a custom worker to handoff questiong to a github issue

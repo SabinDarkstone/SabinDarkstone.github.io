@@ -1,8 +1,72 @@
 ---
-layout: static
+layout: with_sidebar
+permalink: /ama.html
 ---
-<div class="d-flex justify-content-center">
-    <div class="ratio ratio-4x3">
-        <iframe class="google-form-embed" src="https://docs.google.com/forms/d/e/1FAIpQLScupkf4k4yuG_8YJhW16hBH8husupgcD0Sx3Aiyw-CeJzNG5A/viewform?embedded=true" width="640" height="800" frameborder="0" marginheight="0" marginwidth="0" loading="lazy">Loading…</iframe>
+
+<form id="amaForm" class="needs-validation" novalidate>
+    <div class="mb-3">
+        <label for="question" class="form-label">Question</label>
+        <textarea class="form-control" id="question" name="question" required rows="3" placeholder="Enter your question here..."></textarea>
+        <div class="form-text">Markdown supported.</div>
     </div>
-</div>
+
+    <div class="d-none">
+        <label for="website">Website</label>
+        <input id="website" name="website" type="text" tabindex="-1" autocomplete="off">
+    </div>
+
+    <div class="d-grid d-sm-flex">
+        <button type="submit" id="submitBtn" class="btn btn-primary">Send</button>
+    </div>
+
+    <div class="mt-3" if="cf-turnstile-response" data-sitekey="0x4AAAAAABwTstcs6Xz9AbwG"></div>
+
+    <div id="questionResult" class="mt-3" class="cf-turnstile" role="status" aria-live="polite"></div>
+</form>
+
+<script>
+    (function() {
+        const form = document.getElementById("amaForm");
+        const result = document.getElementById("questionResult");
+        const submitBtn = document.getElementById("submitBtn");
+
+        form.addEventListener("submit", async(e) => {
+            e.preventDefault();
+            form.classList.add("was-validated");
+
+            const formData = new FormData(form);
+            const payload = {
+                question: formData.get("question")?.toString().trim(),
+                website: formData.get("website")?.toString().trim() || "",
+                tunstileToken: formData.get("cf-turnstile-response") || null
+            };
+
+            console.log("payload", payload);
+
+            submitBtn.disabled = true;
+            result.innerHTML = '{{ site.data.ask.sending }}';
+
+            try {
+                const res = await fetch("https://{{ site.data.ask.worker }}.workers.dev/ama", {
+                    method: "POST",
+                    headers: { "Content-Type": "application/json" },
+                    body: JSON.stringify(payload)
+                });
+
+                if (!res.ok) {
+                    const err = await res.json().catch(() => ({}));
+                    throw new Error(err.message || `Request failed (${res.status})`);
+                }
+
+                const data = await res.json();
+                result.innerHTML = '{{ site.data.ask.success }}';
+                form.reset();
+                form.classList.remove(".was.validated");
+            } catch (ex) {
+                result.innerHTML = `{{ site.data.ask.error }}`;
+            } finally {
+                submitBtn.disabled = false;
+            }
+        });
+    })();
+</script>
