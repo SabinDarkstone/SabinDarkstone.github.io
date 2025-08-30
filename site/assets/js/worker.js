@@ -17,7 +17,7 @@ export default {
         let body;
         try {
             body = await request.json();
-        } catch {
+        } catch (ex) {
             return json({ message: 'Invalid JSON' }, 400, allowOrigin);
         }
 
@@ -112,7 +112,7 @@ async function verifyTurnstile(token, request, secret) {
         );
         const data = await resp.json();
         return !!data.success;
-    } catch {
+    } catch (ex) {
         return false;
     }
 }
