@@ -37,14 +37,7 @@ export default {
                 return json({ message: 'CAPTCHA failed' }, 400, allowOrigin);
         }
 
-        const issueBody = [
-            question.trim(),
-            '',
-            '---',
-            `**User agent:** ${request.headers.get('user-agent') || 'n/a'}`
-        ]
-            .filter(Boolean)
-            .join('\n');
+        const issueBody = question.trim();
 
         const ghRes = await fetch(
             `https://api.github.com/repos/${env.GH_OWNER}/${env.GH_REPO}/issues`,
