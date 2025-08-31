@@ -1,1 +1,6 @@
 compatibility_date = "2025-08-31"
+
+[vars]
+ALLOWED_ORIGIN = pupsabin.dof
+GH_OWNER = SabinDarkstone
+GH_REPOS = SabinDarkstone.github.io
