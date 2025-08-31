@@ -41,8 +41,6 @@ permalink: /ama.html
                 tunstileToken: formData.get("cf-turnstile-response") || null
             };
 
-            console.log("payload", payload);
-
             submitBtn.disabled = true;
             result.innerHTML = '{{ site.data.ask.sending }}';
 
