@@ -2,4 +2,4 @@ compatibility_date = "2025-08-31"
 
 [vars]
 GH_OWNER = "SabinDarkstone"
-GH_REPOS = "SabinDarkstone.github.io"
+GH_REPO = "SabinDarkstone.github.io"
