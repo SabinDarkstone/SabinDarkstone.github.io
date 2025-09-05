@@ -3,3 +3,10 @@ worker: "wandering-band-e88e.sabin-darkstone"
 success: '<div class="alert alert-success mb-0">Thanks for your question!</div>'
 sending: '<div class="alert alert-info mb-0">Sending...</div>'
 error: '<div class="alert alert-danger mb-0">Sorry, there was a problem taking your question: ${ex.message}</div>'
+
+responses:
+  - question: "Favorite 3 pieces of gear that's not your pup hood. And go!"
+    answer: "In no particular order: my pair of orange Fox 'sex socks', the CCM hockey girdle, and one of my cups/jocks.  It's hard to choose just one of them though!"
+  
+  - question: "Insecurities: how do you acknowledge them and how do you overcome them? Is there something or multiple things that you do to break the barrier(s)?"
+    answer: "test"
