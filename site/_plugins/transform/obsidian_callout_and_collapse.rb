@@ -44,6 +44,12 @@ module ObsidianCalloutAndCollapse
                 else
                     blockquote.replace(handle_callout(html, type, title))
                 end
+
+            # General blockquote handling
+            else
+                cleaned = html.sub(%r{^<p>(.*?)</p>$}m, '\1')
+                cleaned = cleaned.gsub(/\n(?!\n)/, "<br>\n")
+                blockquote.replace("<blockquote class=\"blockquote\"><p class=\"mb-0\">#{cleaned}</p></blockquote>")
             end
         end
 
