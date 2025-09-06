@@ -1,22 +1,28 @@
 <div class="col-12 col-lg-3">
     <div class="p-3">
-        <h5>Journal</h5>
-        
-        {% include sidebar/sidebar-welcome.html page=page %}
+        <div class="d-grid d-lg-none mb-3">
+            <button class="btn btn-outline-primary" data-bs-toggle="collapse" data-bs-target="#sidebar">Show/Hide Menu</button>
+        </div>
 
-        {% include progress-tracker.html %}
+        <!-- Collapsed on small, always visible on large -->
+        <div class="collapse d-lg-block" id="sidebar">
+            <h5>Journal</h5>
 
-        <hr>
+            {% include sidebar/sidebar-welcome.html page=page %}
+            {% include progress-tracker.html %}
 
-        <ul class="nav flex-column" id="journal-tree">
-            {% assign others = site.journal
-                | where_exp: "i", "i.title != 'Welcome'"
-                | sort: "date" | reverse %}
+            <hr>
 
-            {% assign by_year = others | group_by_exp: "item", "item.date | date: '%Y'" %}
-            {% for year in by_year %}
-                {% include sidebar/sidebar-year.html year=year page=page %}
-            {% endfor %}
-        </ul>
+            <ul class="nav flex-column" id="journal-tree">
+                {% assign others = site.journal
+                    | where_exp: "i", "i.title != 'Welcome'"
+                    | sort: "date" | reverse %}
+
+                {% assign by_year = others | group_by_exp: "item", "item.date | date: '%Y'" %}
+                {% for year in by_year %}
+                    {% include sidebar/sidebar-year.html year=year page=page %}
+                {% endfor %}
+            </ul>
+        </div>
     </div>
 </div>

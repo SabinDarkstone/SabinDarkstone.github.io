@@ -29,3 +29,11 @@ blockquote {
 [data-bs-theme="dark"] blockquote {
     border-left: 5px solid #444;
 }
+
+.card:hover {
+    background-color: #f8f9fa
+}
+
+[data-bs-theme="dark"] .card:hover {
+    background-color: #222;
+}

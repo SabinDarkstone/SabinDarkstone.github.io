@@ -138,3 +138,11 @@
   changes:
     - Working on design for displaying AMA answers
     - Adjusting journal layouts a bit
+
+- version: 3.1.2
+  date: 2025-09-06
+  changes:
+    - Modifying layout of entry preview cards
+    - Journal sidebar is now less intrusive on mobile devices
+    - Scheduled refresh of site occurs daily to force a re-render of static pages
+    - Modified how journal entries scroll on the page
