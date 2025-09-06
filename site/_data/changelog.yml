@@ -146,3 +146,5 @@
     - Journal sidebar is now less intrusive on mobile devices
     - Scheduled refresh of site occurs daily to force a re-render of static pages
     - Modified how journal entries scroll on the page
+    - Added additional social media links
+    - Added indicator if a social media platform contained NSFW content

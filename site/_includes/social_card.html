@@ -1,9 +1,20 @@
+<style>
+    .badge-danger {
+        background-color: #dc3545 !important
+    }
+</style>
+
 <div class="card" style="max-width: 500px">
     <div class="card-header d-flex align-items-center gap-4">
         <div class="feature-icon d-inline-flex align-items-center justify-content-center fs-2">
             <img class="icon-size" src="{{ social.iconUrl }}" alt="{{ social.iconAlt }}"/>
         </div>
-        <h3 class="fs-2 text-body-emphases">{{ social.name }}</h3>
+        <h3 class="fs-2 text-body-emphases">
+            {{ social.name }}
+        </h3>
+        {% if social.nsfw %}
+            <span class="badge badge-danger">NSFW</span>
+        {% endif %}
     </div>
     <div class="card-body">
         <p>{{ social.description }}</p>
