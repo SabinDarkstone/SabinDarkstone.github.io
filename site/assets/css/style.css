@@ -30,10 +30,10 @@ blockquote {
     border-left: 5px solid #444;
 }
 
-.card:hover {
+.card-action:hover {
     background-color: #f8f9fa
 }
 
-[data-bs-theme="dark"] .card:hover {
+[data-bs-theme="dark"] .card-action:hover {
     background-color: #222;
 }
