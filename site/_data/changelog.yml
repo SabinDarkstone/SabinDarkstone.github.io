@@ -154,7 +154,7 @@
   changes:
     - Updating sidebar with a new style and rearranged components
     - Reverting scrolling behavior for journal entries since it sucked on mobile
-    - Breadcrums are added to the archive pages and are more consistent
+    - Breadcrumbs are added to the archive pages and are more consistent
 
 - version: 3.1.4
   date: 2025-09-10
