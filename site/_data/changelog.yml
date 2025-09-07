@@ -148,3 +148,10 @@
     - Modified how journal entries scroll on the page
     - Added additional social media links
     - Added indicator if a social media platform contained NSFW content
+    
+- version: 3.1.3
+  date: 2025-09-10
+  changes:
+    - Updating sidebar with a new style
+    - Reverting scrolling behavior for journal entries since it sucked on mobile
+    - Preparing to migrate to material design in the background, no changes are visible yet 
