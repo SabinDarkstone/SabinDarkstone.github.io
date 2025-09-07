@@ -152,6 +152,6 @@
 - version: 3.1.3
   date: 2025-09-10
   changes:
-    - Updating sidebar with a new style
+    - Updating sidebar with a new style and rearranged components
     - Reverting scrolling behavior for journal entries since it sucked on mobile
-    - Preparing to migrate to material design in the background, no changes are visible yet 
+    - Breadcrums are added to the archive pages and are more consistent
