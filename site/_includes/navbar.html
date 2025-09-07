@@ -18,6 +18,9 @@
                 {% endif %}
                 <li class="nav-item">
                     <a class="nav-link {% if active %}active{% endif %}" href="{{ nav.url }}">
+                        {% if nav.icon %}
+                            <i class="bi {{ nav.icon }}"></i>
+                        {% endif %}
                         {{ nav.label }}
                     </a>
                 </li>

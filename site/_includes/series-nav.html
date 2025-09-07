@@ -17,21 +17,21 @@
         <nav class="d-flex gap-2 my-4">
             {% if prev_index >= 0 %}
                 <a class="btn btn-primary" href="{{ series_entries[prev_index].url | relative_url }}">
-                    &larr; Previous
+                    <i class="bi bi-caret-left"></i> Previous
                 </a>
             {% else %}
-                <button class="btn btn-primary" disabled>
-                    &larr; Previous
+                <button class="btn btn-secondary" disabled>
+                    <i class="bi bi-caret-left"></i> Previous
                 </button>
             {% endif %}
 
             {% if next_index < series_entries.size %}
                 <a class="btn btn-primary ms-auto" href="{{ series_entries[next_index].url | relative_url }}">
-                    Next &rarr;
+                    Next <i class="bi bi-caret-right"></i>
                 </a>
             {% else %}
-                <button class="btn btn-primary ms-auto" disabled>
-                    Next &rarr;
+                <button class="btn btn-secondary ms-auto" disabled>
+                    Next <i class="bi bi-caret-right"></i>
                 </button>
             {% endif %}
         </nav>
