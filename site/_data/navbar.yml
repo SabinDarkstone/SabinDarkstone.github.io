@@ -1,12 +1,16 @@
 - name: "index"
   label: "Home"
   url: "/index.html"
+  badge: null
 - name: "gallery"
   label: "Gallery"
   url: "/gallery.html"
+  badge: NEW
 - name: "journal"
   label: "Journal"
   url: "/journal/welcome.html"
+  badge: null
 - name: "ama"
   label: "Ask Me"
   url: "/ama.html"
+  badge: null

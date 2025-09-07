@@ -17,7 +17,9 @@
                     {% assign active = false %}
                 {% endif %}
                 <li class="nav-item">
-                    <a class="nav-link {% if active %}active{% endif %}" href="{{ nav.url }}">{{ nav.label }}</a>
+                    <a class="nav-link {% if active %}active{% endif %}" href="{{ nav.url }}">
+                        {{ nav.label }}
+                    </a>
                 </li>
             {% endfor %}
         </ul>
@@ -38,7 +40,6 @@
     if (toggle) {
         toggle.checked = document.documentElement.getAttribute("data-bs-theme") === "dark";
         toggle.addEventListener("change", () => {
-            console.log("Foo");
             const theme = toggle.checked ? "dark" : "light";
             document.documentElement.setAttribute("data-bs-theme", theme);
             localStorage.setItem("theme", theme);

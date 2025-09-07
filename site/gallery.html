@@ -3,13 +3,23 @@ layout: static
 ---
 
 <div class="px-4 py-5 my-5 text-center">
-    <h1 class="display-5 fw-bold text-body-emphasis">
-        Gallery Coming Soon
+    <h1 class="display-5 fw-bold text-body-emphasis mb-5">
+        Photo Gallery
     </h1>
-    
-    <div class="col-lg-6 mx-auto">
-        <p class="lead mb-4">
-            This page is under construction.
-        </p>
+
+    <div class="d-flex justify-content-center">
+        <div class="col-md-8 row">
+            {% for image in site.data.gallery.images %}
+                {% assign url = "/assets/imgs/gallery/" | append: image %}
+                <a class="col-md-4 mb-3" href="{{ url }}" data-toggle="lightbox">
+                    <img src="{{ url }}" class="img-fluid">
+                </a>
+
+                {% assign mod = forloop.index0 | modulo: 3 %}
+                {% if md == 2 and forloop.last == false %}
+                    </div><div class="row">
+                {% endif %}
+            {% endfor %}
+        </div>
     </div>
 </div>
