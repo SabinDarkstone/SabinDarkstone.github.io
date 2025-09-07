@@ -37,24 +37,24 @@
 
 {% assign month_count = month.items | size %}
 
-<li class="nav-header ms-2">
-    {% include sidebar/sidebar-toggle.html
-        collapse_id=collapse_id
-        is_open=is_open
-        label=month.name
-        count=month_count %}
-</li>
+{% include sidebar/sidebar-toggle.html
+    collapse_id=collapse_id
+    is_open=is_open
+    label=month.name
+    count=month_count %}
 
-<ul class="collapse {% if is_open %}show{% endif %}" id="{{ collapse_id }}">
-    {% for entry in month.items %}
-        {% if entry.private != true or entry.url == page.url %}
-            {% assign show_entry = true %}
-        {% else %}
-            {% assign show_entry = false %}
-        {% endif %}
+<div class="collapse {% if is_open %}show{% endif %}" id="{{ collapse_id }}">
+    <div class="list-group list-group-flush ms-2">
+        {% for entry in month.items %}
+            {% if entry.private != true or entry.url == page.url %}
+                {% assign show_entry = true %}
+            {% else %}
+                {% assign show_entry = false %}
+            {% endif %}
 
-        {% if show_entry %}
-            {% include sidebar/sidebar-entry.html entry=entry page=page %}
-        {% endif %}
-    {% endfor %}
-</ul>
+            {% if show_entry %}
+                {% include sidebar/sidebar-entry.html entry=entry page=page %}
+            {% endif %}
+        {% endfor %}
+    </div>
+</div>

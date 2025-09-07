@@ -1,20 +1,13 @@
 {% if page.related_entries and page.related_entries.size > 0 %}
-    <div class="card" style="width: 24rem;">
-        <div class="card-header">
-            Related Entries
-        </div>
-        <div class="card-body">
-            <h6 class="card-subtitle mb-2 text-muted">Check out these related entries</h6>
-            <p>
-                <ul>
-                    {% for doc in page.related_entries %}
-                        <li>
-                            <a href="{{ doc.url }}">{{ doc.title }}</a>
-                        </li>
-                    {% endfor %}
-                </ul>
-            </p>
-        </div>
+    <hr>
+
+    <h6>Related Entries</h6>
+    <div class="list-group list-group-flush">
+        {% for doc in page.related_entries %}
+            <a class="list-group-item list-group-item-action" href="{{ doc.url }}">
+                {{ doc.title }}
+            </a>
+        {% endfor %}
     </div>
 {% endif %}
 

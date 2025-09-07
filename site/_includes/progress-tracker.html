@@ -1,22 +1,27 @@
 {% assign prog = site.progress %}
 
-<div class="mb-3">
-    <h6>Progress</h6>
+<div class="my-3">
+    <div class="card">
+        <div class="card-body">
+            <h6 class="card-title">Progress</h6>
 
-    <div class="mb-2">
-        <div class="small">
-            {{ prog.entries_this_month }} / {{ prog.monthly_goal }} entries this month
-        </div>
+            <div class="mb-2">
+                <div class="small">
+                    {{ prog.entries_this_month }} / {{ prog.monthly_goal }} entries this month
+                </div>
 
-        <div class="progress" style="height: 5px;">
-            <div class="progress-bar" role="progressbar" style="width: {{ prog.progress_pct | default: 0 }}%;"
-                aria-valuenow="{{ prog.entries_this_month }}" aria-valuemin="0" aria-valuemax="{{ prog.monthly_goal }}">
+                <div class="progress" style="height: 5px;">
+                    <div class="progress-bar" role="progressbar" style="width: {{ prog.progress_pct | default: 0 }}%;"
+                        aria-valuenow="{{ prog.entries_this_month }}" aria-valuemin="0" aria-valuemax="{{ prog.monthly_goal }}">
+                    </div>
+                </div>
+            </div>
+
+            <div class="small mb-3">
+                Streak: {{ prog.streak }} day{% if prog.streak != 1 %}s{% endif %}<br>
+                Words this month: {{ prog.words_this_month }}
             </div>
         </div>
     </div>
 
-    <div class="small">
-        Streak: {{ prog.streak }} day{% if prog.streak != 1 %}s{% endif %}<br>
-        Words this month: {{ prog.words_this_month }}
-    </div>
 </div>

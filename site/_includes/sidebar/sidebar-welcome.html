@@ -1,39 +1,27 @@
 {% assign journal_public = site.journal | where_exp: "i", "i.data.private != true" %}
 
-<li class="nav-item" style="list-style: none">
+<div class="list-group list-group-flush">
     {% if page.url contains "search" %}
-        <a class="nav-link active fw-bold">Search</a>
+        <a class="list-group-item list-group-item-action active">Search</a>
     {% else %}
-        <form class="d-flex mb-0" role="search" onsubmit="location.href='{{ '/journal/search/' | relative_url }}?q='+encodeURIComponent(this.q.value); return false;">
+        <form class="d-flex mb-2" role="search" onsubmit="location.href='{{ '/journal/search/' | relative_url }}?q='+encodeURIComponent(this.q.value); return false;">
             <input class="form-control form-control-sm me-2" type="search" name="q" placeholder="Search for an entry…" aria-label="Search">
         </form>
     {% endif %}
-</li>
 
-<hr>
-
-<li class="nav-item" style="list-style: none">
-    <a class="nav-link {% if page.url contains '/welcome' %}active fw-bold{% endif %}" href="/journal/welcome.html">
+    <a class="list-group-item list-group-item-action {% if page.url contains '/welcome' %}active{% endif %}" href="/journal/welcome.html">
         Welcome
     </a> 
-</li>
 
-<li class="nav-item" style="list-style: none">
-    <a class="nav-link {% if page.url contains '/tags/' %}active fw-bold{% endif %}" href="/journal/tags/">
+    <a class="list-group-item list-group-item-action {% if page.url contains '/tags/' %}active{% endif %}" href="/journal/tags/">
         All Tags
     </a>
-</li>
 
-<li class="nav-item" style="list-style: none">
-    <a class="nav-link {% if page.url contains '/moods/' %}active fw-bold{% endif %}" href="/journal/moods/">
+    <a class="list-group-item list-group-item-action {% if page.url contains '/moods/' %}active{% endif %}" href="/journal/moods/">
         All Moods
     </a>
-</li>
 
-<li class="nav-item" style="list-style: none">
-    <a class="nav-link {% if page.url contains 'changelog' %}active fw-bold{% endif %}" href="/journal/changelog.html">
+    <a class="list-group-item list-group-item-action {% if page.url contains 'changelog' %}active{% endif %}" href="/journal/changelog.html">
         Change Log
     </a>
-</li>
-
-<hr>
+</div>

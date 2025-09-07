@@ -11,9 +11,7 @@
             {% include sidebar/sidebar-welcome.html page=page %}
             {% include progress-tracker.html %}
 
-            <hr>
-
-            <ul class="nav flex-column" id="journal-tree">
+            <div class="list-group list-group-flush" id="journal-tree">
                 {% assign others = site.journal
                     | where_exp: "i", "i.title != 'Welcome'"
                     | sort: "date" | reverse %}
@@ -22,7 +20,11 @@
                 {% for year in by_year %}
                     {% include sidebar/sidebar-year.html year=year page=page %}
                 {% endfor %}
-            </ul>
+            </div>
+
+            <div class="mt-4 flex-column">
+                {% include related-entries.html %}
+            </div>
         </div>
     </div>
 </div>
