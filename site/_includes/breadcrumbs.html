@@ -28,13 +28,15 @@
                     </li>
 
                 {% elsif page.year %}
+                    {% assign my_month = page.month | default: 1 %}
+                    {% assign placeholder_date = page.year | append: "-" | append: my_month | append: "-01" %}
                     {% if page.month %}
                         <li class="breadcrumb-item">
                             <a href="/journal/{{ page.year }}/">{{ page.year }}</a>
                         </li>
 
                         <li class="breadcrumb-item active">
-                            {{ page.month }}
+                            {{ placeholder_date | date: "%B" }}
                         </li>
                     {% else %}
                         <li class="breadcrumb-item active">
