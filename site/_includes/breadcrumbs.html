@@ -22,11 +22,26 @@
                     <li class="breadcrumb-item">
                         <a href="/journal/{{ year }}/{{ month_number }}/">{{ month_name }}</a>
                     </li>
-                {% endif %}
 
-                <li class="breadcrumb-item active" aria-current="page">
-                    {{ page.title }}
-                </li>
+                    <li class="breadcrumb-item active" aria-current="page">
+                        {{ page.title }}
+                    </li>
+
+                {% elsif page.year %}
+                    {% if page.month %}
+                        <li class="breadcrumb-item">
+                            <a href="/journal/{{ page.year }}/">{{ page.year }}</a>
+                        </li>
+
+                        <li class="breadcrumb-item active">
+                            {{ page.month }}
+                        </li>
+                    {% else %}
+                        <li class="breadcrumb-item active">
+                            {{ page.year }}
+                        </li>
+                    {% endif %}
+                {% endif %}
             </ol>
         </div>
     </div>
