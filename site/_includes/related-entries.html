@@ -1,11 +1,12 @@
 {% if page.related_entries and page.related_entries.size > 0 %}
     <div class="card my-3">
         <div class="card-body">
-            <h6 class="card-title">Related Entries</h6>
+            <h4 class="card-title">Related Entries</h4>
             <div class="list-group list-group-flush">
                 {% for doc in page.related_entries %}
                     <a class="list-group-item list-group-item-action" href="{{ doc.url }}">
-                        {{ doc.title }}
+                        <h5>{{ doc.title }}</h5>
+                        <small class="text-muted">{{ doc.description2 | default: doc.description }}</small>
                     </a>
                 {% endfor %}
             </div>
