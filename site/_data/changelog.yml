@@ -8,30 +8,30 @@
 - version: 1.1.0
   date: 2025-07-26
   changes:
-    - Adding spotify music links
-    - Adding custom support for obsidian callouts
-    - Reorganizing asset structure
+    - Added spotify music links
+    - Added custom support for obsidian callouts
+    - Reorganized asset structure
 
 - version: 1.2.0
   date: 2025-07-27
   changes:
-    - Adding estimated read time
-    - Tweaking journal layout to read more information from frontmatter
-    - Adding wiki-links support to link between journal entries
-    - Adding future topics list
+    - Added estimated read time
+    - Tweaked journal layout to read more information from frontmatter
+    - Added wiki-links support to link between journal entries
+    - Added future topics list
 
 - version: 1.2.1
   date: 2025-07-28
   changes:
-    - Updating how previews are built
-    - Adding descriptions to entries
-    - Refactoring layout of journal behind the scenes
+    - Updated how previews are built
+    - Added descriptions to entries
+    - Refactored layout of journal behind the scenes
 
 - version: 1.2.2
   date: 2025-08-03
   changes:
-    - Changing sidebar breakpoints
-    - Updating sidebar to be interactive tree
+    - Changed sidebar breakpoints
+    - Updated sidebar to be interactive tree
 
 - version: 1.2.3
   date: 2025-08-10
@@ -43,25 +43,25 @@
 - version: 1.2.4
   date: 2025-08-16
   changes:
-    - Adding support for images inserted into entries in a wikilink style
-    - Adding support for obsidian's callouts
-    - Updating the journaling music callout to be a special case since it uses bootstrap collapse
+    - Added support for images inserted into entries in a wikilink style
+    - Added support for obsidian's callouts
+    - Updated the journaling music callout to be a special case since it uses bootstrap collapse
 
 - version: 1.3.0
   date: 2025-08-17
   changes:
-    - Adding a progress tracker to the sidebar to show stats about journal entries this month
-    - Adding support for journal entry series
-    - Adding navigation buttons to previous/next entries in a series
-    - Adding breadcrumbs for navigation, which will be improved upon in the future
+    - Added a progress tracker to the sidebar to show stats about journal entries this month
+    - Added support for journal entry series
+    - Addec navigation buttons to previous/next entries in a series
+    - Added breadcrumbs for navigation, which will be improved upon in the future
     - Technical design improvements and addressing technical debt in custom plugins
-    - Adding the ability to save entries as drafts to not be published yet
+    - Added the ability to save entries as drafts to not be published yet
     - Entries can now be marked as private and are not accessible in the sidebar or in the tag navigation page
 
 - version: 1.4.0
   date: 2025-08-21
   changes:
-    - Adding dynamically generated archives pages to view posts by month and year on a separate page.
+    - Added dynamically generated archives pages to view posts by month and year on a separate page.
     - Clicking the year or the month in the breadcrumbs at the top of an entry will take you to the archive page
 
 - version: 1.4.1
@@ -87,7 +87,7 @@
     - AMA questions are submitted as github issues.
     - Mood tags are color coded (may revert)
     - Added mood index pages like tags
-    - Refactoring entry previews to be componentized
+    - Refactored entry previews to be componentized
 
 - version: 2.1.1
   date: 2025-08-25
@@ -104,19 +104,19 @@
 - version: 2.2.0
   date: 2025-08-27
   changes:
-    - Adding search functionality
+    - Added search functionality
     - You can now search for entries based on their name, tags, moods, and content
 
 - version: 2.2.1
   date: 2025-08-28
   changes:
-    - Adding a search box to the sidebar
-    - Cleaning up JS and compressing it in the markdown
+    - Added a search box to the sidebar
+    - Cleaned up JS and compressing it in the markdown
 
 - version: 3.0.0
   date: 2025-08-29
   changes:
-    - Updating home page to show social media links in cards
+    - Updated home page to show social media links in cards
     - Social media cards are rendered dynamically based on liquid templates
     - The journal welcome page is more dynamic and features information about the blog in a nicer way
     - Recent entries are featured at the top
@@ -136,13 +136,13 @@
 - version: 3.1.1
   date: 2025-09-05
   changes:
-    - Working on design for displaying AMA answers
-    - Adjusting journal layouts a bit
+    - Began work on design for displaying AMA answers
+    - Adjusted journal layouts a bit
 
 - version: 3.1.2
   date: 2025-09-06
   changes:
-    - Modifying layout of entry preview cards
+    - Modified layout of entry preview cards
     - Journal sidebar is now less intrusive on mobile devices
     - Scheduled refresh of site occurs daily to force a re-render of static pages
     - Modified how journal entries scroll on the page
@@ -152,8 +152,8 @@
 - version: 3.1.3
   date: 2025-09-10
   changes:
-    - Updating sidebar with a new style and rearranged components
-    - Reverting scrolling behavior for journal entries since it sucked on mobile
+    - Updated sidebar with a new style and rearranged components
+    - Reverted scrolling behavior for journal entries since it sucked on mobile
     - Breadcrumbs are added to the archive pages and are more consistent
 
 - version: 3.1.4
@@ -161,3 +161,6 @@
   changes:
     - Added photo gallery with some images from my bluesky account
     - This is a first iteration and will likely undergo changes
+    - Updated style for related entries listing
+    - Added description to related entries list
+    - Updated wording in changelog entries
