@@ -1,14 +1,6 @@
 {% assign journal_public = site.journal | where_exp: "i", "i.data.private != true" %}
 
 <div class="list-group list-group-flush">
-    {% if page.url contains "search" %}
-        <a class="list-group-item list-group-item-action active">Search</a>
-    {% else %}
-        <form class="d-flex mb-2" role="search" onsubmit="location.href='{{ '/journal/search/' | relative_url }}?q='+encodeURIComponent(this.q.value); return false;">
-            <input class="form-control form-control-sm me-2" type="search" name="q" placeholder="Search for an entry…" aria-label="Search">
-        </form>
-    {% endif %}
-
     <a class="list-group-item list-group-item-action {% if page.url contains '/welcome' %}active{% endif %}" href="/journal/welcome.html">
         Welcome
     </a> 

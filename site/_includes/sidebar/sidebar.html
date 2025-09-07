@@ -1,30 +1,37 @@
-<div class="col-12 col-lg-3">
-    <div class="p-3">
-        <div class="d-grid d-lg-none mb-3">
-            <button class="btn btn-outline-primary" data-bs-toggle="collapse" data-bs-target="#sidebar">Show/Hide Menu</button>
+<div class="p-3">
+    <div class="d-grid d-lg-none mb-3">
+        <button class="btn btn-outline-primary" data-bs-toggle="collapse" data-bs-target="#sidebar">Show/Hide Menu</button>
+    </div>
+
+    <!-- Collapsed on small, always visible on large -->
+    <div class="collapse d-lg-block" id="sidebar">
+        <h5>Journal</h5>
+
+        {% if page.url contains "search" %}
+            <a class="list-group-item list-group-item-action active">Search</a>
+        {% else %}
+            <form class="d-flex mb-2" role="search" onsubmit="location.href='{{ '/journal/search/' | relative_url }}?q='+encodeURIComponent(this.q.value); return false;">
+                <input class="form-control form-control-sm me-2" type="search" name="q" placeholder="Search for an entry…" aria-label="Search">
+            </form>
+        {% endif %}
+
+        {% include progress-tracker.html %}
+
+        {% include sidebar/sidebar-static.html page=page %}
+
+        <div class="list-group list-group-flush" id="journal-tree">
+            {% assign others = site.journal
+                | where_exp: "i", "i.title != 'Welcome'"
+                | sort: "date" | reverse %}
+
+            {% assign by_year = others | group_by_exp: "item", "item.date | date: '%Y'" %}
+            {% for year in by_year %}
+                {% include sidebar/sidebar-year.html year=year page=page %}
+            {% endfor %}
         </div>
 
-        <!-- Collapsed on small, always visible on large -->
-        <div class="collapse d-lg-block" id="sidebar">
-            <h5>Journal</h5>
-
-            {% include sidebar/sidebar-welcome.html page=page %}
-            {% include progress-tracker.html %}
-
-            <div class="list-group list-group-flush" id="journal-tree">
-                {% assign others = site.journal
-                    | where_exp: "i", "i.title != 'Welcome'"
-                    | sort: "date" | reverse %}
-
-                {% assign by_year = others | group_by_exp: "item", "item.date | date: '%Y'" %}
-                {% for year in by_year %}
-                    {% include sidebar/sidebar-year.html year=year page=page %}
-                {% endfor %}
-            </div>
-
-            <div class="mt-4 flex-column">
-                {% include related-entries.html %}
-            </div>
+        <div class="mt-4 flex-column">
+            {% include related-entries.html %}
         </div>
     </div>
 </div>

@@ -6,9 +6,11 @@ permalink: /journal/search/
 
 <div class="container-fluid">
     <div class="row">
-        {% include sidebar/sidebar.html %}
+        <div class="col-12 col-xl-3 col-lg-4">
+            {% include sidebar/sidebar.html %}
+        </div>
 
-        <div class="col-sm-9 px-4 py-4">
+        <div class="col-12 col-xl-9 col-lg-8 py-4">
             <h1 class="mb-3">Search</h1>
 
             <form class="mb-3" role="search" onsubmit="go(event)">
