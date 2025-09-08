@@ -1,9 +1,7 @@
 module CustomSeoDescription
     def self.pre_render(doc)
         # Ignore any non-html files
-        return unless doc.output_ext == ".html"
-
-        Jekyll::logger.info "Generating custom SEO description for #{doc.relative_path}"
+        return unless doc.output_ext == ".html" && doc.data["layout"] == "journal"
 
         # Extract reading time, tags, and the excerpt
         reading_time = doc.data["reading_time"]
@@ -18,5 +16,7 @@ module CustomSeoDescription
 
         doc.data["description2"] = excerpt.strip
         doc.data["description"] = custom.join(" ").strip
+
+        Jekyll::logger.info "Generated custom SEO description for #{doc.relative_path}"
     end
 end

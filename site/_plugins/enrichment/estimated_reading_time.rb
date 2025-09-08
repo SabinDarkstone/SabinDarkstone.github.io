@@ -3,7 +3,7 @@ require_relative "../helpers/formatting"
 module EstimatedReadingTime
     def self.pre_render(doc)
         # Ignore any non-html files and empty files
-        return unless doc.output_ext == ".html" && doc.content
+        return unless doc.output_ext == ".html" && doc.data["layout"] == "journal" && doc.content
 
         Jekyll::logger.info "Calculating estimated reading time for #{doc.relative_path}"
 

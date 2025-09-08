@@ -18,7 +18,8 @@ module PupArchives
                 "count" => entries.length,
                 "permalink" => permalink,
                 "year" => year,
-                "month" => month
+                "month" => month,
+                "injected_seo" => "foo"
             }
         end  
     end
