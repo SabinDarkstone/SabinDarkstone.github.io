@@ -16,7 +16,7 @@ layout: static
                 </a>
 
                 {% assign mod = forloop.index0 | modulo: 3 %}
-                {% if md == 2 and forloop.last == false %}
+                {% if mod == 2 and forloop.last == false %}
                     </div><div class="row">
                 {% endif %}
             {% endfor %}

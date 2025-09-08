@@ -166,12 +166,17 @@
     - Updated wording in changelog entries
     - Added icons to various parts of the site
 
-- version: 3.2
+- version: 3.2.0
   date: 2025-09-08
   changes:
     - Applied a new theme on top of bootstrap
     - Style is now built with SCSS to allow custom configuration
     - Light/dark toggle is now a button
     - Repo underwent some reorganization to clean up and organize files differently
-    - Fixing dates in previous 2 versions
-    - Updating navbar to be sticky
+    - Fixed dates in previous 2 versions
+    - Updated navbar to be sticky
+
+- version: 3.2.1
+  date: 2025-09-08
+  changes:
+    - Added answer cards to AMA

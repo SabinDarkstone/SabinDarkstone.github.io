@@ -27,33 +27,27 @@ permalink: /ama.html
     <div id="questionResult" class="mt-3" class="cf-turnstile" role="status" aria-live="polite"></div>
 </form>
 
-{% comment %}
 {% if site.data.ask.responses %}
     <div class="mt-5">
         <h2>Answered Questions</h2>
-        {% for qa in site.data.ask.responses %}
-            <div class="card mb-4">
-                <div class="card-body mb-3">
+    </div>
+    
+    {% assign cards = site.data.ask.responses | reverse %}
+    {% for qa in cards %}
+        <div class="col mb-4">
+            <div class="card border-primary pb-1">
+                <div class="card-body">
                     <h5 class="card-title">{{ qa.question | strip }}</h5>
                     <div class="card-text">{{ qa.answer }}</div>
                 </div>
-            </div>
-        {% endfor %}
-    </div>
-{% endif %}
-{% endcomment %}
 
-<div class="px-4 py-5 my-5 text-center">
-    <h1 class="display-5 fw-bold text-body-emphasis">
-        Answers Coming Soon!
-    </h1>
-    
-    <div class="col-lg-6 mx-auto">
-        <p class="lead mb-4">
-            Feel free to continue submitting questions!
-        </p>
-    </div>
-</div>
+                <div class="card-footer text-muted">
+                    {{ qa.date | date: "%B %d, %Y" }}
+                </div>
+            </div>
+        </div>
+    {% endfor %}
+{% endif %}
 
 <script>
     (function() {

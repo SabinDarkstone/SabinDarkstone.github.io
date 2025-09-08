@@ -7,6 +7,16 @@ error: '<div class="alert alert-danger mb-0">Sorry, there was a problem taking y
 responses:
   - question: "Favorite 3 pieces of gear that's not your pup hood. And go!"
     answer: "In no particular order: my pair of orange Fox 'sex socks', the CCM hockey girdle, and one of my cups/jocks.  It's hard to choose just one of them though!"
+    date: 2025-09-05
   
   - question: "Insecurities: how do you acknowledge them and how do you overcome them? Is there something or multiple things that you do to break the barrier(s)?"
-    answer: "test"
+    answer: "It's always a struggle to overcome insecurities, and I would be lying if I said I had a good solution on how to do so.  I think acknowledging them is best done with the help of a therapist. 
+      Mental health help is super crucial to overcoming these sorts of obstacles.  I think one of the best pieces of advice i can give to overcome insecurities and/or break down the barriers is to remind
+      yourself that everyone else has insecurities, too.  It's okay to be anxious about them, but don't let them control you.  Acknowledge them and take some deep breaths before staring to dig in to
+      analyze what about it is bothering you.  Cognitive Behavioral Therapy (the other kind of CBT) is a really good tool for this."
+    date: 2025-09-08
+
+  - question: "^ tap tap tap ^ this thing on? tail wags"
+    answer: "Yes! The questions have been piling up in my github issues on the repo that I have the site, and I'm finally getting around to both answering them, storing the answers, and creating a way to
+      display the answers on the site.  I still need to work on the look and feel of the answers, but at least something is visible!"
+    date: 2025-09-08

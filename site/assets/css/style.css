@@ -37,3 +37,11 @@ blockquote {
 [data-bs-theme="dark"] .card-action:hover {
     background-color: #222;
 }
+
+[data-bs-theme="dark"] textarea {
+    color: #ccc !important;
+}
+
+[data-bs-theme="dark"] textarea::placeholder {
+    color: #888 !important;
+}
