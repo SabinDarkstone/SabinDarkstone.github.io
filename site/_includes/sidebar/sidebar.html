@@ -19,6 +19,8 @@
 
         {% include sidebar/sidebar-static.html page=page %}
 
+        <hr>
+
         <div class="list-group list-group-flush" id="journal-tree">
             {% assign others = site.journal
                 | where_exp: "i", "i.title != 'Welcome'"

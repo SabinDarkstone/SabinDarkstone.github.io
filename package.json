@@ -1,7 +1,7 @@
 {
   "scripts": {
-    "build:css": "sass custom.scss site/assets/css/site.css --style=compressed --load-path=node_modules",
-    "watch:css": "sass --watch custom.scss site/assets/css/site.css --load-path=node_modules"
+    "build:css": "sass custom.scss site/assets/css/site.css --style=compressed --load-path=node_modules --source-map --embed-source-map --embed-sources",
+    "watch:css": "sass --watch custom.scss site/assets/css/site.css --load-path=node_modules --no-source-map"
   },
   "devDependencies": {
     "sass": "^1.92.1"

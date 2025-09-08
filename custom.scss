@@ -1,18 +1,5 @@
-@import "bootstrap/scss/functions";
-@import "bootstrap/scss/variables";
-@import "bootstrap/scss/maps";
-
-
-@import "bootswatch/dist/materia/_variables";
-
 $primary: #ffa500;
 
-$theme-colors: map-merge(
-    $theme-colors,
-    (
-        "primary": $primary
-    )
-);
-
+@import "bootswatch/dist/materia/variables";
 @import "bootstrap/scss/bootstrap";
-@import "bootswatch/dist/materia/_bootswatch";
+@import "bootswatch/dist/materia/bootswatch";
