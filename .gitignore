@@ -1,6 +1,7 @@
-deploy
 .obsidian
 .env
+
+/site/node_modules
 
 /site/_journal/.obsidian
 /site/_site
