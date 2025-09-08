@@ -180,3 +180,5 @@
   date: 2025-09-08
   changes:
     - Added answer cards to AMA
+    - Fixed some issues with input colors not being readable
+    - Fixed issue with theme button not having the right color text
