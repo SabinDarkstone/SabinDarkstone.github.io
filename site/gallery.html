@@ -1,25 +1,22 @@
 ---
 layout: static
+permalink: /gallery.html
 ---
 
-<div class="px-4 py-5 my-5 text-center">
-    <h1 class="display-5 fw-bold text-body-emphasis mb-5">
+<div class="container py-5">
+    <h1 class="display-5 fw-bold text-body-emphasis mb-5 text-center">
         Photo Gallery
     </h1>
 
-    <div class="d-flex justify-content-center">
-        <div class="col-md-8 row">
-            {% for image in site.data.gallery.images %}
-                {% assign url = "/assets/imgs/gallery/" | append: image %}
-                <a class="col-md-4 mb-3" href="{{ url }}" data-toggle="lightbox">
-                    <img src="{{ url }}" class="img-fluid">
+    <div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 g-4">
+        {% for image in site.data.gallery.images %}
+            {% assign url = "/assets/imgs/gallery/" | append: image.path %}
+            {% assign focus = image.focus | default: "center" %}
+            <div class="col">
+                <a href="{{ url }}" data-toggle="lightbox" data-gallery="gallery">
+                    <img src="{{ url }}" class="gallery-img img-fluid rounded shadow-sm" alt="Gallert image" loading="lazy" style="object-position: center {{ focus }};"/>
                 </a>
-
-                {% assign mod = forloop.index0 | modulo: 3 %}
-                {% if mod == 2 and forloop.last == false %}
-                    </div><div class="row">
-                {% endif %}
-            {% endfor %}
-        </div>
+            </div>
+        {% endfor %}
     </div>
 </div>

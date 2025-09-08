@@ -38,10 +38,17 @@ blockquote {
     background-color: #222;
 }
 
-[data-bs-theme="dark"] textarea {
+[data-bs-theme="dark"] input, textarea {
     color: #ccc !important;
 }
 
-[data-bs-theme="dark"] textarea::placeholder {
+[data-bs-theme="dark"] input::placeholder, textarea::placeholder {
     color: #888 !important;
+}
+
+.gallery-img {
+    width: 100%;
+    height: 240px;
+    object-fit: cover;
+    object-position: center;
 }
