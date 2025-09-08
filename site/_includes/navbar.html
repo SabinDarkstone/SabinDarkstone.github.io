@@ -1,4 +1,4 @@
-<nav class="navbar navbar-expand-md">
+<nav class="navbar sticky-top navbar-expand-md" id="navParent">
     <div class="container">
         <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarToggler">
             <span class="navbar-toggler-icon"></span>
@@ -40,6 +40,7 @@
 <script>
     (function () {
         const btn = document.getElementById("themeToggle");
+        const nav = document.getElementById("navParent");
         const prefersDark = window.matchMedia("(prefers-color-scheme: dark)").matches;
         const stored = localStorage.getItem("theme");
         const theme = stored || (prefersDark ? "dark" : "light");
@@ -50,6 +51,17 @@
             btn.innerHTML = (t === "dark")
                 ? "<i class='bi bi-brightness-high-fill me-1' aria-hidden='true'></i><span>Light</span>"
                 : "<i class='bi bi-moon-fill me-1' aria-hidden='true'></i><span>Dark</span>";
+            if (t === "dark") {
+                nav.classList.remove("bg-light");
+                nav.classList.remove("navbar-light");
+                nav.classList.add("bg-dark");
+                nav.classList.add("navbar-dark");
+            } else {
+                nav.classList.remove("bg-dark");
+                nav.classList.remove("navbar-dark");
+                nav.classList.add("bg-light");
+                nav.classList.add("navbar-light");
+            }
         }
 
         render(theme);

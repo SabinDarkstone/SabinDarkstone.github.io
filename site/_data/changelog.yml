@@ -174,3 +174,4 @@
     - Light/dark toggle is now a button
     - Repo underwent some reorganization to clean up and organize files differently
     - Fixing dates in previous 2 versions
+    - Updating navbar to be sticky
