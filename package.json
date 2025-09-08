@@ -1,0 +1,13 @@
+{
+  "scripts": {
+    "build:css": "sass custom.scss site/assets/css/site.css --style=compressed --load-path=node_modules",
+    "watch:css": "sass --watch custom.scss site/assets/css/site.css --load-path=node_modules"
+  },
+  "devDependencies": {
+    "sass": "^1.92.1"
+  },
+  "dependencies": {
+    "bootstrap": "^5.3.8",
+    "bootswatch": "^5.3.7"
+  }
+}

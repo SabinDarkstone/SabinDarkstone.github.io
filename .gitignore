@@ -1,7 +1,7 @@
 .obsidian
 .env
 
-/site/node_modules
+/node_modules
 
 /site/_journal/.obsidian
-/site/_site
+/_site
