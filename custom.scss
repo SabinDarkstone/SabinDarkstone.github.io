@@ -3,3 +3,162 @@ $primary: #ffa500;
 @import "bootswatch/dist/materia/variables";
 @import "bootstrap/scss/bootstrap";
 @import "bootswatch/dist/materia/bootswatch";
+
+/* Core wrapper */
+.callout {
+    --co-border: #6c757d;
+    --co-bg: color-mix(in srgb, var(--co-border) 8%, transparent);
+    --co-title-bg: color-mix(in srgb, var(--co-border) 12%, transparent);
+
+    border: 1px solid var(--co-border);
+    border-left-width: 0.25rem;
+    border-radius: 0.5rem;
+    background: var(--co-bg);
+    overflow: hidden;
+}
+
+[data-bs-theme="dark"] .callout {
+    --co-bg: color-mix(in srgb, var(--co-border) 14%, transparent);
+    --co-title-bg: color-mix(in srgb, var(--co-border) 22%, transparent);
+}
+
+/* Title bar */
+.callout .callout-title,
+.callout-title.btn-unstyled {
+    width: 100%;
+    padding: 0.6rem 0.75rem;
+    background: var(--co-title-bg);
+    font-weight: 600;
+    cursor: default;
+    border: 0;
+    text-align: left;
+}
+
+/* Make the collapsible header look like a plain div, not a Bootstrap button */
+.btn-unstyled {
+    background: none;
+    border: none;
+    color: inherit;
+}
+
+/* Body/content */
+.callout .callout-content {
+    padding: 0.75rem 0.9rem;
+}
+
+/* Caret for collapsible type, rotates on expand */
+.callout-caret {
+    transition: transform 0.15s ease-in-out;
+}
+.callout .collapse.show ~ .callout-caret, /* safety if DOM differs */
+.callout .callout-title[aria-expanded="true"] .callout-caret {
+    transform: rotate(90deg);
+}
+
+/* Type colors (roughly Obsidian-esque) */
+.callout-note {
+    --co-border: #6c757d;
+}
+.callout-info {
+    --co-border: #ffa500;
+}
+.callout-tip,
+.callout-success {
+    --co-border: #198754;
+}
+.callout-question {
+    --co-border: #20c997;
+}
+.callout-warning {
+    --co-border: #ffc107;
+}
+.callout-danger,
+.callout-failure {
+    --co-border: #dc3545;
+}
+.callout-bug {
+    --co-border: #d63384;
+}
+.callout-example {
+    --co-border: #6f42c1;
+}
+.callout-quote,
+.callout-abstract {
+    --co-border: #495057;
+}
+
+/* Dedicated class used by the COLLAPSE type */
+.callout-collapse {
+    --co-border: #6c757d;
+}
+
+/* Dark mode tweak (Bootstrap’s .bg-body / prefers-color-scheme) */
+@media (prefers-color-scheme: dark) {
+    .callout {
+        --co-bg: color-mix(in srgb, var(--co-border) 14%, transparent);
+        --co-title-bg: color-mix(in srgb, var(--co-border) 22%, transparent);
+    }
+}
+
+/* Spacing harmonization */
+.callout p:first-child {
+    margin-top: 0;
+}
+.callout p:last-child {
+    margin-bottom: 0;
+}
+
+.card-body {
+    padding-bottom: 0 !important;
+}
+
+/* Bootstrap 5 dark mode usually toggles data-bs-theme="dark" on <html> or <body> */
+[data-bs-theme="dark"] .google-form-embed {
+    filter: invert(1) hue-rotate(180deg) contrast(0.95) brightness(0.9);
+}
+
+/* Optional: reduce glow around white areas when user prefers dark */
+@media (prefers-color-scheme: dark) {
+    [data-bs-theme="auto"] .google-form-embed {
+        filter: invert(1) hue-rotate(180deg) contrast(0.95) brightness(0.9);
+    }
+}
+
+.icon-size {
+    height: 1.4em;
+}
+
+blockquote {
+    padding-left: 10px;
+    border-left: 5px solid #ccc;
+    border-radius: 5px;
+    font-style: italic;
+    font-size: 1.1em;
+}
+
+[data-bs-theme="dark"] blockquote {
+    border-left: 5px solid #444;
+}
+
+.card-action:hover {
+    background-color: #f8f9fa
+}
+
+[data-bs-theme="dark"] .card-action:hover {
+    background-color: #222;
+}
+
+[data-bs-theme="dark"] input, textarea {
+    color: #ccc !important;
+}
+
+[data-bs-theme="dark"] input::placeholder, textarea::placeholder {
+    color: #888 !important;
+}
+
+.gallery-img {
+    width: 100%;
+    height: 240px;
+    object-fit: cover;
+    object-position: center;
+}

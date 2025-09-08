@@ -66,7 +66,7 @@ module ObsidianCalloutAndCollapse
         new_node = Nokogiri::HTML::DocumentFragment.parse <<~HTML
             <div class="mb-2">
                 <button
-                    class="btn btn-primary"
+                    class="btn btn-sm btn-primary"
                     type="button"
                     data-bs-toggle="collapse"
                     data-bs-target="##{callout_id}"
@@ -92,7 +92,7 @@ module ObsidianCalloutAndCollapse
         new_node = Nokogiri::HTML::DocumentFragment.parse <<~HTML
             <div class="callout callout-info callout-collapse mb-3">
                 <button
-                    class="callout-title btn-unstyled d-flex align-items-center w-100"
+                    class="callout-title btn-sm btn-unstyled d-flex align-items-center w-100"
                     type="button"
                     data-bs-toggle="collapse"
                     data-bs-target="##{callout_id}"
