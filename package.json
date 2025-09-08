@@ -1,7 +1,10 @@
 {
   "scripts": {
     "build:css": "sass custom.scss site/assets/css/site.css --style=compressed --load-path=node_modules --source-map --embed-source-map --embed-sources",
-    "watch:css": "sass --watch custom.scss site/assets/css/site.css --load-path=node_modules --no-source-map"
+    "watch:css": "sass --watch custom.scss site/assets/css/site.css --load-path=node_modules --no-source-map",
+    "build:jekyll": "bundle exec jekyll build --source site --destination _site",
+    "serve:jekyll": "bundle exec jekyll serve -t --source site --destination _site",
+    "execute": "npm run build:css && npm run serve:jekyll"
   },
   "devDependencies": {
     "sass": "^1.92.1"
