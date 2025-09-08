@@ -44,7 +44,7 @@
     count=month_count %}
 
 <div class="collapse {% if is_open %}show{% endif %}" id="{{ collapse_id }}">
-    <div class="list-group list-group-flush ms-2">
+    <div class="list-group list-group-flush">
         {% for entry in month.items %}
             {% if entry.private != true or entry.url == page.url %}
                 {% assign show_entry = true %}

@@ -29,7 +29,7 @@
 
 <div class="collapse {% if is_open %}show{% endif %}" id="{{ collapse_id }}">
     {% assign by_month = year.items | group_by_exp: "e", "e.date | date: '%B'" %}
-    <div class="list-group list-group-flush ms-2">
+    <div class="list-group list-group-flush">
         {% for month in by_month %}
             {% include sidebar/sidebar-month.html month=month page=page %}
         {% endfor %}
