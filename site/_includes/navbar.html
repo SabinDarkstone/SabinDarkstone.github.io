@@ -1,42 +1,41 @@
-<section class="container">
-    <header class="d-flex flex-wrap align-items-center align-content-between justify-content-center py-3 mb-4 border-bottom">
-        <a class="d-flex mb-md-0 me-md-auto link-body-emphasis text-decoration-none" href="/">
-            <span class="fs-4" style="margin-right:20px;">
-                About Me
-            </span>
-        </a>
+<nav class="navbar navbar-expand-md">
+    <div class="container">
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarToggler">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <a class="navbar-brand" href="#">About Me</a>
 
-        <ul class="nav nav-pills">
-            {% for nav in site.data.navbar %}
-            {% assign p = page.url | downcase %}
-                {% if page.url == "/" and nav.name == "index" %}
-                    {% assign active = true %}
-                {% elsif page.url contains nav.name %}
-                    {% assign active = true %}
-                {% else %}
-                    {% assign active = false %}
-                {% endif %}
-                <li class="nav-item">
-                    <a class="nav-link {% if active %}active{% endif %}" href="{{ nav.url }}">
-                        {% if nav.icon %}
-                            <i class="bi {{ nav.icon }}"></i>
-                        {% endif %}
-                        {{ nav.label }}
-                    </a>
-                </li>
-            {% endfor %}
-        </ul>
+        <div class="collapse navbar-collapse" id="navbarToggler">
+            <ul class="navbar-nav nav nav-pills me-auto mt-2 mt-md-0">
+                {% for nav in site.data.navbar %}
+                {% assign p = page.url | downcase %}
+                    {% if page.url == "/" and nav.name == "index" %}
+                        {% assign active = true %}
+                    {% elsif page.url contains nav.name %}
+                        {% assign active = true %}
+                    {% else %}
+                        {% assign active = false %}
+                    {% endif %}
+                    <li class="nav-item">
+                        <a class="nav-link {% if active %}active{% endif %}" href="{{ nav.url }}">
+                            {% if nav.icon %}
+                                <i class="bi {{ nav.icon }}"></i>
+                            {% endif %}
+                            {{ nav.label }}
+                        </a>
+                    </li>
+                {% endfor %}
+            </ul>
 
-        <div class="d-flex" style="height:40px;margin-left:20px;">
-            <div class="vr"></div>
+            <form class="form-inline my-2 my-md-0">
+                <div class="form-check form-switch">
+                    <input class="form-check-input" type="checkbox" id="theme-toggle"/>
+                    <label class="form-check-label" for="theme-toggle">Dark Mode</label>
+                </div>
+            </form>
         </div>
-        
-        <div class="form-check form-switch ms-3 ">
-            <input class="form-check-input" type="checkbox" id="theme-toggle"/>
-            <label class="form-check-label" for="theme-toggle">Dark Mode</label>
-        </div>
-    </header>
-</section>
+    </div>
+</nav>
 
 <script>
     const toggle = document.getElementById("theme-toggle");
