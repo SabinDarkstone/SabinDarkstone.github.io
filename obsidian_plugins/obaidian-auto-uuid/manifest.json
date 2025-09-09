@@ -1,0 +1,10 @@
+{
+    "id": "obsidian-auto-uuid",
+    "name": "Auto UUID Frontmatter",
+    "version": "1.0.0",
+    "minAppVersion": "1.5.0",
+    "description": "Automatically adds a UUID to the frontmatter when new notes are created",
+    "author": "Sabin",
+    "authorUrl": "pupsabin.dog",
+    "isDesktopOnly": false
+}
