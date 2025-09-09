@@ -19,7 +19,7 @@ defaults:
       path: ""
       type: "journal"
     values:
-      image: assets/imgs/Journal_Image.jpg
+      image: https://assets.pupsabin.dog/IMG_1064.jpeg
       description: "A view into the life of gearhead werehusky sergal thing, Pup Sabin, one journal entry at a time."
 
 jekyll-minifier:
