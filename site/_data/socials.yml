@@ -3,7 +3,7 @@
   description: "You can find me posting here about my day, mental health, and general sports gear and puppy horny posting.  I follow a lot of really amazing furries, pups, gearheads, drones, and you should, too!"
   linkUrl: "https://bsky.app/profile/pupsabin.dog"
   linkText: "Follow me here!"
-  iconUrl: "assets/imgs/Bluesky_Logo.svg"
+  iconUrl: "https://assets.pupsabin.dog/Bluesky_Logo.svg"
   iconAlt: "Bluesky logo"
   addedImage: null
   nsfw: true
@@ -12,16 +12,16 @@
   description: "I love chatting with folks and spreading the good word of puppy play and therians. You can use my telegram link or scan the QR code below."
   linkUrl: "https://t.me/SabinDarkstone"
   linkText: "@SabinDarkstone"
-  iconUrl: "assets/imgs/Telegram_Logo.svg"
+  iconUrl: "https://assets.pupsabin.dog/Telegram_Logo.svg"
   iconAlt: "Telegram Logo"
-  addedImage: "assets/imgs/Telegram_QR_Code.png"
+  addedImage: "https://assets.pupsabin.dog/Telegram_QR_Code.png"
   nsfw: false
 - fetlife:
   name: "FetLife"
   description: "A good way to find and attend local events in your area. This is especially useful for general BDSM and kinky stuff, but you will occassionally find some pup events on here."
   linkUrl: "https://fetlife.com/Pup_Sabin"
   linkText: "FetLife Profile"
-  iconUrl: "assets/imgs/Fetlife_Logo.svg"
+  iconUrl: "https://assets.pupsabin.dog/Fetlife_Logo.svg"
   iconAlt: "FetLife Logo"
   addedImage: null
   nsfw: true
@@ -30,7 +30,7 @@
   description: Similar to my use of Bluesky.  I mostly share sports gear focused content, nearly all of it original, and give my thoughts on items of sports gear."
   linkUrl: "https://www.tumblr.com/blog/gearwerewolf"
   linkText: "Tumblr Blog"
-  iconUrl: "assets/imgs/Tumblr_Logo.svg"
+  iconUrl: "https://assets.pupsabin.dog/Tumblr_Logo.svg"
   iconAlt: "Tumblr Logo"
   addedImage: null
   nsfw: true
@@ -39,7 +39,7 @@
   description: "I'm not on here too much, but you can message me and I'll get back soon!"
   linkUrl: "https://discord.com/users/371767271569489921"
   linkText: "@pup_sabin"
-  iconUrl: "assets/imgs/Discord_Logo.svg"
+  iconUrl: "https://assets.pupsabin.dog/Discord_Logo.svg"
   iconAlt: "Discord Logo"
   addedImage: null
   nsfw: false
@@ -48,7 +48,7 @@
   description: "I post on here now and then to post gear and pup related content."
   linkUrl: "https://www.reddit.com/user/SabinTheSergal/"
   linkText: "SabinTheSergal"
-  iconUrl: "assets/imgs/Reddit_Logo.svg"
+  iconUrl: "https://assets.pupsabin.dog/Reddit_Logo.svg"
   iconAlt: "Reddit Logo"
   addedImage: null
   nsfw: true

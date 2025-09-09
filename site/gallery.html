@@ -10,7 +10,7 @@ permalink: /gallery.html
 
     <div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 g-4">
         {% for image in site.data.gallery.images %}
-            {% assign url = "/assets/imgs/gallery/" | append: image.path %}
+            {% assign url = "https://assets.pupsabin.dog/" | append: image.path %}
             {% assign focus = image.focus | default: "center" %}
             <div class="col">
                 <a href="{{ url }}" data-toggle="lightbox" data-gallery="gallery">
