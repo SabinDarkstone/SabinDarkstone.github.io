@@ -10,7 +10,7 @@
         "build": "node esbuild.config.mjs"
     },
     "devDependencies": {
-        "esbuild": "^0.21.5",
+        "esbuild": "^0.25.0",
         "obsidian": "^1.8.7",
         "tslib": "^2.6.2",
         "typescript": "^5.5.4"
