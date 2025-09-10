@@ -1,5 +1,5 @@
 source "https://rubygems.org"
-# gem "github-pages"
+gem "github-pages"
 gem "webrick"
 gem "jekyll-seo-tag"
 gem "tzinfo", "~> 2.0"
