@@ -4,7 +4,7 @@
     "watch:css": "sass --watch custom.scss site/assets/css/site.css --load-path=node_modules --no-source-map",
     "build:jekyll": "bundle exec jekyll build --source site --destination _site",
     "serve:jekyll": "bundle exec jekyll serve -t --source site --destination _site",
-    "execute": "npm run build:css && npm run serve:jekyll"
+    "execute": "npm run build:css && npm run build:jekyll"
   },
   "devDependencies": {
     "sass": "^1.92.1"
