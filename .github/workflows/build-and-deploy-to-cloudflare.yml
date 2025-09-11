@@ -11,6 +11,7 @@ env:
   RUBY_VERSION: '3.1.2'
   CF_PAGES_PROJECT: 'sabindarkstone-github-io'
   BUILD_DIR: /_site
+  JEKYLL_ENV: production
 
 jobs:
   build:
@@ -25,7 +26,20 @@ jobs:
         with:
           ruby-version: ${{ env.RUBY_VERSION }}
           bundler-cache: true
-          working-directory: site
+
+      - name: Cache Ruby gems
+        uses: actions/cache@v4
+        with:
+          path: site/vendor/bundle
+          key: ${{ runner.os }}-gems-${{ hashFiles('site/Gemfile.lock') }}
+          restore-keys: |
+            ${{ runner.os }}-gems-
+      
+      - name: Install gems
+        working-directory: site
+        run: |
+          bundle config path vendor/bundle
+          bundle install --jobs 4 --retry 3
 
       - name: Build Jekyll
         working-directory: site
