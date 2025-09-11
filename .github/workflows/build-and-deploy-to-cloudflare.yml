@@ -1,0 +1,55 @@
+name: Build & Deploy to Cloudflare Pages
+
+on:
+  push:
+    branches: [ main ]
+
+permissions:
+  contents: read
+
+env:
+  RUBY_VERSION: '3.1.2'
+  CF_PAGES_PROJECT: 'sabindarkstone-github-io'
+  BUILD_DIR: /_site
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    outputs:
+      artifact-name: site-dist
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Set up Ruby & Bundler (cache)
+        uses: ruby/setup-ruby@v1
+        with:
+          ruby-version: ${{ env.RUBY_VERSION }}
+          bundler-cache: true
+          working-directory: site
+
+      - name: Build Jekyll
+        working-directory: site
+        run: |
+          bundle exec jekyll build --trace
+
+      - name: Upload built site as artifact
+        uses: actions/upload-artifact@v4
+        with:
+          name: site-dist
+          path: ${{ env.BUILD_DIR }}
+
+  deploy:
+    needs: build
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/download-artifact@v4
+        with:
+          name: site-dist
+          path: dist
+      
+      - name: Deploy to Cloudflare Pages
+        uses: cloudflare/wrangler-action@v3
+        with:
+          apiToken: ${{ secrets.CLOUDFLARE_API_TOKEN }}
+          accountId: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
+          command: pages deploy dist --project-name ${{ env.CF_PAGES_PROJECT }} --branch=main
