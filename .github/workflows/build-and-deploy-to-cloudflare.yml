@@ -46,7 +46,7 @@ jobs:
         run: npm ci
 
       - name: Build CSS
-        run: npm build:css
+        run: npm run build:css
       
       - name: Install gems
         working-directory: site
