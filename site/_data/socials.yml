@@ -7,6 +7,7 @@
   iconAlt: "Bluesky logo"
   addedImage: null
   nsfw: true
+  
 - telegram:
   name: "Telegram"
   description: "I love chatting with folks and spreading the good word of puppy play and therians. You can use my telegram link or scan the QR code below."
@@ -16,6 +17,7 @@
   iconAlt: "Telegram Logo"
   addedImage: "https://assets.pupsabin.dog/Telegram_QR_Code.png"
   nsfw: false
+
 - fetlife:
   name: "FetLife"
   description: "A good way to find and attend local events in your area. This is especially useful for general BDSM and kinky stuff, but you will occassionally find some pup events on here."
@@ -25,6 +27,7 @@
   iconAlt: "FetLife Logo"
   addedImage: null
   nsfw: true
+
 - tumblr:
   name: "Tumblr"
   description: Similar to my use of Bluesky.  I mostly share sports gear focused content, nearly all of it original, and give my thoughts on items of sports gear."
@@ -34,6 +37,7 @@
   iconAlt: "Tumblr Logo"
   addedImage: null
   nsfw: true
+
 - discord:
   name: "Discord"
   description: "I'm not on here too much, but you can message me and I'll get back soon!"
@@ -43,6 +47,7 @@
   iconAlt: "Discord Logo"
   addedImage: null
   nsfw: false
+
 - reddit:
   name: "Reddit"
   description: "I post on here now and then to post gear and pup related content."

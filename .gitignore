@@ -1,7 +1,5 @@
 .obsidian
 .env
-
 node_modules
-
-.obsidian
 _site
+Gemfile.lock
