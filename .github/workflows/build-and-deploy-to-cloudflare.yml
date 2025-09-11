@@ -71,11 +71,11 @@ jobs:
       - uses: actions/download-artifact@v4
         with:
           name: site-dist
-          path: dist
+          path: ${{ env.BUILD_DIR }}
       
       - name: Deploy to Cloudflare Pages
         uses: cloudflare/wrangler-action@v3
         with:
           apiToken: ${{ secrets.CLOUDFLARE_API_TOKEN }}
           accountId: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
-          command: pages deploy dist --project-name ${{ env.CF_PAGES_PROJECT }} --branch=main
+          command: pages deploy ${{ env.BUILD_DIR }} --project-name ${{ env.CF_PAGES_PROJECT }} --branch=main
