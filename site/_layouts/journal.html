@@ -26,4 +26,27 @@ layout: with_sidebar
     </div>
 </div>
 
+<div class="comments-section" class="card mb-3">
+    <div class="card-header">
+        <h5>Comments</h5>
+    </div>
+    <div class="card-body">
+        <div id="comments-list" class="mb-3"></div>
+
+        <form id="comment-form">
+            <input type="text" id="comment-name" class="form-control mb-2" placeholder="Name (optional)"/>
+            <textarea id="comment-text" class="form-control mb-2" placeholder="Comment" required></textarea>
+
+            <button type="submit" class="btn btn-primary">Submit</button>
+        </form>
+    </div>
+</div>
+
 {% include related-entries.html %}
+
+<script>
+    window.COMMENTS_API = "{{ site.data.comments.api }}";
+    window.COMMENTS_ENTRY = "{{ page.uuid }}";
+</script>
+
+<script src="/assets/js/comments.js"></script>

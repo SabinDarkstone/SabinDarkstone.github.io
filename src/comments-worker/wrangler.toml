@@ -1,0 +1,10 @@
+compatibility_date = "2025-09-11"
+main = "worker.js"
+name = "comments"
+
+[vars]
+ALLOWED_ORIGIN = "*"
+
+[[kv_namespaces]]
+binding = "COMMENTS"
+id = "1ea3f3ac7c194a1b84c125591919842d"
