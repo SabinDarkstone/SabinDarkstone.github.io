@@ -1,0 +1,40 @@
+{
+    // Use IntelliSense to learn about possible attributes.
+    // Hover to view descriptions of existing attributes.
+    // For more information, visit: https://go.microsoft.com/fwlink/?linkid=830387
+    "version": "0.2.0",
+    "configurations": [
+        {
+            "name": "Watch CSS",
+            "type": "node-terminal",
+            "request": "launch",
+            "command": "npm run watch:css",
+            "cwd": "${workspaceFolder}"
+        },
+        {
+            "name": "Serve Jekyll",
+            "type": "node-terminal",
+            "request": "launch",
+            "command": "bundler install && npm run serve:jekyll",
+            "serverReadyAction": {
+                "pattern": "Server address: (http://127\\.0\\.0\\.1:4000)",
+                "uriFormat": "%s",
+                "action": "debugWithChrome"
+            }
+        },
+        {
+            "name": "Browser Sync",
+            "type": "node-terminal",
+            "request": "launch",
+            "command": "browser-sync start --proxy \"127.0.0.1:4000\" --files \"_site/*\" --no-open",
+            "cwd": "${workspaceFolder}"
+        }
+    ],
+    "compounds": [
+        {
+            "name": "Launch Server",
+            "configurations": ["Watch CSS", "Serve Jekyll"/*, "Browser Sync"*/],
+            "stopAll": true
+        }
+    ]
+}
