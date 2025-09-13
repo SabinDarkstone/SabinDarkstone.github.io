@@ -189,3 +189,9 @@
     - Transferred domain to a different provider
     - Set up some web analytics just for a bit of fun to see what's going on
     - Moved most of the images off git and to a service from the provider
+
+- version: 3.2.3
+  date: 2025-09-13
+  changes:
+    - Readded comments for now with a new system
+    - Tweaked site theme and added a placeholder favicon
