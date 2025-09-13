@@ -4,17 +4,17 @@
   badge: null
   icon: bi-house
 
-- name: "gallery"
-  label: "Gallery"
-  url: "/gallery.html"
-  badge: NEW
-  icon: bi-images
-
 - name: "journal"
   label: "Journal"
   url: "/journal/welcome.html"
   badge: null
   icon: bi-journal
+  
+- name: "gallery"
+  label: "Gallery"
+  url: "/gallery.html"
+  badge: NEW
+  icon: bi-images
 
 - name: "ama"
   label: "Ask Me"
