@@ -195,3 +195,9 @@
   changes:
     - Readded comments for now with a new system
     - Tweaked site theme and added a placeholder favicon
+
+- version: 3.2.4
+  date: 2025-09-14
+  changes:
+    - Behind the scenes tweaks to reduce the number of includes and templates
+    - Cleaned up excess files and reduced the number of build items
