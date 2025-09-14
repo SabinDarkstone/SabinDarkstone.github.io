@@ -11,7 +11,7 @@ layout: with_sidebar
     <h3 class="mt-4">{{ group.name }}</h3>
     <div class="d-flex flex-wrap gap-2 mb-3">
         {% for item in group.items %}
-            {% include item-badge.html name=item.label color=item.color slug=item.slug count=item.count %}
+            {% include item-badge.html name=item.label color=item.color slug=item.slug count=item.count link=true %}
         {% endfor %}
     </div>
 {% endfor %}

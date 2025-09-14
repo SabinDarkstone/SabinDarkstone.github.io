@@ -12,7 +12,7 @@ module PupMoods
             process(@name)
             self.data = {
                 "layout" => "metalist",
-                "title" => "Entries with Mood \"#{mood}\"",
+                "title" => "Entries Where I was \"#{mood}\"",
                 "mood" => mood,
                 "slug" => slug,
                 "entries" => entries.sort_by { |d| d.data["date"] || Time.at(0) }.reverse,

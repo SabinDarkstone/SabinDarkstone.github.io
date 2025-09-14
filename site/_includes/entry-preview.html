@@ -9,18 +9,17 @@
             </h6>
 
             <div class="card-text">
-                {% if entry.description2 %}
-                    <p class="mb-3">{{ entry.description2 }}</p>
-                {% endif %}
-                
                 {% if entry.tags and entry.tags.size > 0 %}
                     <div class="d-flex flex-wrap gap-2 my-3">
                         {% for tag in entry.tags %}
-                        <span class="badge rounded-pill text-bg-light">
-                            #{{ tag }}
-                        </span>
+                            {% assign name = "#" | append: tag | replace: "_", " " %}
+                            {% include item-badge.html name=name color="primary" link=false %}
                         {% endfor %}
                     </div>
+                {% endif %}
+                
+                {% if entry.description2 %}
+                    <p class="mb-3">{{ entry.description2 }}</p>
                 {% endif %}
             </div>
         </div>

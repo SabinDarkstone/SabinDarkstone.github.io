@@ -22,7 +22,7 @@ layout: with_sidebar
                     {% for mood in page.moods %}
                         {% assign slug = "moods/" | append: mood | slugify: "raw" %}
 
-                        {% include item-badge.html name=mood slug=slug color="info" %}
+                        {% include item-badge.html name=mood slug=slug color="info" link=true %}
                     {% endfor %}
                 </p>
             </div>
@@ -36,7 +36,7 @@ layout: with_sidebar
                     {% for tag in page.tags %}
                         {% assign slug = "tags/" | append: tag | slugify: "raw" %}
                         {% assign name = "#" | append: tag | replace: "_", " " %}
-                        {% include item-badge.html name=name slug=slug color="primary" %}
+                        {% include item-badge.html name=name slug=slug color="primary" link=true %}
                     {% endfor %}
                 </p>
             </div>
