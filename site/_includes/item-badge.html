@@ -1,0 +1,15 @@
+{% if include.link %}
+    <a class="badge text-bg-{{ include.color }} text-decoration-none" href="/journal/{{ include.slug }}">
+        {{ include.name }}
+        {% if include.count %}
+            <span class="ms-1 badge text-bg-secondary">{{ include.count }}</span>
+        {% endif %}
+    </a>
+{% else %}
+    <span class="badge text-bg-{{ include.color }}">
+        {{ include.name }}
+        {% if include.count %}
+            <span class="ms-1 badge text-bg-secondary">{{ include.count }}</span>
+        {% endif %}
+    </span>
+{% endif %}

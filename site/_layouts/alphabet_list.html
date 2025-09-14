@@ -1,0 +1,17 @@
+---
+layout: with_sidebar
+---
+
+<h1 class="mb-3">{{ page.title }}</h1>
+
+{% assign grouped_items = page.items
+    | sort: "name"
+    | group_by_exp: "item", "item.name | slice: 0, 1 | upcase" %}
+{% for group in grouped_items %}
+    <h3 class="mt-4">{{ group.name }}</h3>
+    <div class="d-flex flex-wrap gap-2 mb-3">
+        {% for item in group.items %}
+            {% include item-badge.html name=item.label color=item.color slug=item.slug count=item.count link=true %}
+        {% endfor %}
+    </div>
+{% endfor %}
