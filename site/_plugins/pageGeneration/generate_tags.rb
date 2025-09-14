@@ -48,12 +48,16 @@ module PupTags
             # A tag index page: /journal/tags
             index = Jekyll::PageWithoutAFile.new(site, site.source, "tags", "index.html")
             index.data = {
-                "layout" => "tags",
+                "layout" => "alphabet_list",
                 "title" => "All Tags",
-                "tags" => tag_map.keys.sort.map { |t| {
-                    "name" => t,
-                    "slug" => Jekyll::Utils.slugify(t, mode: "raw"),
-                    "count" => tag_map[t].size }
+                "items" => tag_map.keys.sort.map { |t|
+                    {
+                        "name" => t,
+                        "label" => "#" + t,
+                        "slug" => "tags/" + Jekyll::Utils.slugify(t, mode: "raw"),
+                        "count" => tag_map[t].size,
+                        "color" => "primary"
+                    }
                 },
                 "permalink" => "/journal/tags/"
             }
