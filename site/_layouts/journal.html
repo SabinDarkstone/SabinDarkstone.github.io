@@ -14,7 +14,39 @@ layout: with_sidebar
         <h6 class="text-muted">{{ page.description2 | default: page.description }}</h6>
         <hr>
 
-        {% include entry-top-widgets.html %}
+        {% comment %} Mood Tracker {% endcomment %}
+        {% if page.moods and page.moods.size > 0 %}
+            <div class="d-flex flex-wrap gap-2 my-3">
+                <p class="mt-0 mb-0">
+                    Moods
+                    {% for mood in page.moods %}
+                        {% assign slug = "moods/" | append: mood | slugify: "raw" %}
+
+                        {% include item-badge.html name=mood slug=slug color="info" %}
+                    {% endfor %}
+                </p>
+            </div>
+        {% endif %}
+
+        {% comment %} Tags {% endcomment %}
+        {% if page.tags and page.tags.size > 0 %}
+            <div class="d-flex flex-wrap gap-2 my-3">
+                <p class="mt-0 mb-0">
+                    Tags
+                    {% for tag in page.tags %}
+                        {% assign slug = "tags/" | append: tag | slugify: "raw" %}
+                        {% assign name = "#" | append: tag | replace: "_", " " %}
+                        {% include item-badge.html name=name slug=slug color="primary" %}
+                    {% endfor %}
+                </p>
+            </div>
+        {% endif %}
+
+        {% if page.reading_time %}
+            <p class="text-muted">
+                <span class="badge text-bg-light"><i class="bi bi-alarm"></i> {{ page.reading_time }} min read</span>
+            </p>
+        {% endif %}
     </div>
 </div>
 
