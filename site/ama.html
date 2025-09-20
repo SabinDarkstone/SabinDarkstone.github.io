@@ -72,7 +72,7 @@ permalink: /ama.html
             result.innerHTML = '{{ site.data.ask.sending }}';
 
             try {
-                const res = await fetch("https://{{ site.data.ask.worker }}.workers.dev/ama", {
+                const res = await fetch("https://{{ site.data.ask.worker }}/ama", {
                     method: "POST",
                     headers: { "Content-Type": "application/json" },
                     body: JSON.stringify(payload)
