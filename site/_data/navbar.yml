@@ -4,11 +4,11 @@
   badge: null
   icon: bi-house
 
-- name: "journal"
-  label: "Journal"
-  url: "/journal/welcome.html"
-  badge: null
-  icon: bi-journal
+# - name: "journal"
+#   label: "Journal"
+#   url: "/journal/welcome.html"
+#   badge: null
+#   icon: bi-journal
   
 - name: "gallery"
   label: "Gallery"
