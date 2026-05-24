@@ -16,8 +16,8 @@
   badge: NEW
   icon: bi-images
 
-- name: "ama"
-  label: "Ask Me"
-  url: "/ama.html"
-  badge: null
-  icon: bi-question-circle
+# - name: "ama"
+#   label: "Ask Me"
+#   url: "/ama.html"
+#   badge: null
+#   icon: bi-question-circle
